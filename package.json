@@ -1,0 +1,15 @@
+{
+  "name": "front-end-boilerplate",
+  "version": "0.0.1",
+  "description": "A boilerplate for front end projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itadakimas/front-end-boilerplate.git"
+  },
+  "author": "Itadakimas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itadakimas/front-end-boilerplate/issues"
+  },
+  "homepage": "https://github.com/itadakimas/front-end-boilerplate#readme"
+}
