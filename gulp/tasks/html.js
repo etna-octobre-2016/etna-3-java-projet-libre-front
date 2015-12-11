@@ -23,7 +23,7 @@ Gulp.task("html", function(callback) {
 
   return Gulp
     .src(paths.relocate(config.paths.sources.html))
-    .pipe(Jade(config.jade))
+    .pipe(Jade(config.nodeModules.jade))
     .pipe(replace)
     .pipe(Gulp.dest(paths.relocate(config.paths.builds.html[argv.mode])));
 });
