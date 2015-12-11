@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "sass": "src/sass/*.scss"
+  },
+  "builds": {
+    "css": {
+      "development": "tmp/css",
+      "distributable": "dist/css"
+    }
+  }
+}
