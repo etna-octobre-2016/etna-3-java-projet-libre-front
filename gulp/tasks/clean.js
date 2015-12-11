@@ -41,7 +41,7 @@ function onCleanSuccess(callback, deletedItems)
  */
 Gulp.task("clean", function(callback) {
 
-  var targets = paths.relocate(config.modules.clean.paths[argv.mode]);
+  var targets = paths.relocate(config.tasks.clean.paths[argv.mode]);
   var options = {force: true};
 
   Del(targets, options).then(
