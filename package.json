@@ -34,6 +34,7 @@
   "scripts": {
     "clean": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js clean",
     "help": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js --help",
-    "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass"
+    "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass",
+    "svg": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js svg"
   }
 }

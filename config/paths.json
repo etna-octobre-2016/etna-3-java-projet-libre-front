@@ -1,11 +1,16 @@
 {
   "sources": {
-    "sass": "src/sass/*.scss"
+    "sass": "src/sass/*.scss",
+    "svg": "src/images/icons/svg/*.svg"
   },
   "builds": {
     "css": {
       "development": "tmp/css",
       "distributable": "dist/css"
+    },
+    "svg": {
+      "development": "tmp/images/sprites",
+      "distributable": "dist/images/sprites"
     }
   }
 }

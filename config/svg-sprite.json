@@ -1,0 +1,9 @@
+{
+  "log": "verbose",
+  "mode": {
+    "symbol": {
+      "dest": ".",
+      "sprite": "sprite.svg"
+    }
+  }
+}
