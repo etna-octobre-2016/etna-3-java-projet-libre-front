@@ -1,0 +1,15 @@
+doctype html
+html(lang="fr-FR")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    block title
+      title Titre de la page
+    link(rel="stylesheet", href="css/main.css?bust=@@CACHE_BUST")
+  body
+    include ../includes/common/header.jade
+    main#main
+      block content
+    include ../includes/common/footer.jade
+    script(src="js/main.js?bust=@@CACHE_BUST")

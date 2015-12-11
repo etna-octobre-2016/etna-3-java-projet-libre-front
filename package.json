@@ -20,6 +20,7 @@
     "errno": "0.1.4",
     "gulp": "3.9.0",
     "gulp-babel": "6.1.1",
+    "gulp-jade": "1.1.0",
     "gulp-jshint": "2.0.0",
     "gulp-notify": "2.2.0",
     "gulp-replace-task": "0.11.0",
@@ -36,6 +37,7 @@
   "scripts": {
     "clean": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js clean",
     "help": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js --help",
+    "html": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js html",
     "javascript": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js javascript",
     "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass",
     "svg": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js svg"

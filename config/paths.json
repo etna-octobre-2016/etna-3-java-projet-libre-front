@@ -1,5 +1,6 @@
 {
   "sources": {
+    "html": "src/html/*/*.{html,jade}",
     "js": [
       "!src/vendors/**/*.js",
       "src/**/*.js"
@@ -11,6 +12,10 @@
     "css": {
       "development": "tmp/css",
       "distributable": "dist/css"
+    },
+    "html": {
+      "development": "tmp",
+      "distributable": "dist"
     },
     "js": {
       "development": "tmp",
