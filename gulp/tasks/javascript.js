@@ -22,8 +22,8 @@ var replace = require("../modules/replace");
 Gulp.task("javascript", function() {
 
   return Gulp
-    .src(paths.relocatePaths(config.paths.sources.js))
+    .src(paths.relocate(config.paths.sources.js))
     .pipe(replace)
     .pipe(Babel())
-    .pipe(Gulp.dest(paths.relocatePath(config.paths.builds.js[argv.mode])));
+    .pipe(Gulp.dest(paths.relocate(config.paths.builds.js[argv.mode])));
 });

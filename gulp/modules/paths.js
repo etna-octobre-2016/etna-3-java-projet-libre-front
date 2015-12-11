@@ -3,25 +3,27 @@
  */
 var Path = require("path");
 
-// TODO: use a single method for path string and paths array
+/*
+ * Internal functions
+ */
+function relocate(path)
+{
+  return Path.resolve("../", path);
+}
 
 module.exports = {
 
-  relocatePath: function(p) {
+  relocate: function(p) {
 
     if (typeof p === "string")
     {
-      return Path.resolve("../", p);
+      return relocate(p);
     }
-    throw new Error("unexpected param type");
-  },
-  relocatePaths: function(p) {
-
-    if (p instanceof Array)
+    else if (p instanceof Array)
     {
       return p.map(function(item) {
 
-        return this.relocatePath(item);
+        return relocate(item);
 
       }, this);
     }

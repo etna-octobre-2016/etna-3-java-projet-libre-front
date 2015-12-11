@@ -34,9 +34,9 @@ function onSassSuccess(callback)
 Gulp.task("sass", function(callback) {
 
   Gulp
-    .src(paths.relocatePath(config.paths.sources.sass))
+    .src(paths.relocate(config.paths.sources.sass))
     .pipe(Sass(config.sass[argv.mode]))
     .on("end", onSassSuccess.bind(null, callback))
     .on("error", onSassError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocatePath(config.paths.builds.css[argv.mode])));
+    .pipe(Gulp.dest(paths.relocate(config.paths.builds.css[argv.mode])));
 });
