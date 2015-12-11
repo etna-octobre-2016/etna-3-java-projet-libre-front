@@ -3,7 +3,6 @@
  */
 var Colors = require("colors/safe");
 var Gulp = require("gulp");
-var Path = require("path");
 var Sass = require("gulp-sass");
 
 /*
@@ -11,6 +10,7 @@ var Sass = require("gulp-sass");
  */
 var argv = require("../modules/argv");
 var config = require("../modules/config");
+var paths = require("../modules/paths");
 
 /*
  * Internal functions
@@ -34,9 +34,9 @@ function onSassSuccess(callback)
 Gulp.task("sass", function(callback) {
 
   Gulp
-    .src(Path.resolve("../", config.paths.sources.sass))
+    .src(paths.relocatePath(config.paths.sources.sass))
     .pipe(Sass(config.sass[argv.mode]))
     .on("end", onSassSuccess.bind(null, callback))
     .on("error", onSassError.bind(null, callback))
-    .pipe(Gulp.dest(Path.resolve("../", config.paths.builds.css[argv.mode])));
+    .pipe(Gulp.dest(paths.relocatePath(config.paths.builds.css[argv.mode])));
 });
