@@ -4,6 +4,7 @@
 var Babel = require("gulp-babel");
 var Colors = require("colors/safe");
 var Gulp = require("gulp");
+var Uglify = require("gulp-uglify");
 
 /*
  * Modules
@@ -16,6 +17,8 @@ var replace = require("../modules/replace");
 /*
  * Task
  */
+
+// TODO: add minification when mode === distributable
 Gulp.task("javascript", function() {
 
   return Gulp
