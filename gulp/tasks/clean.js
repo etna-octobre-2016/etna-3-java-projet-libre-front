@@ -16,23 +16,24 @@ var paths = require("../modules/paths");
 /*
  * Internal functions
  */
-function onCleanError(err)
+function onCleanError(callback, err)
 {
   console.log(Colors.red.underline('"clean" task failed!'));
   console.log("\t- Path: " + err.path);
   console.log("\t- Cause: " + Errno.code[err.code].description);
-  throw err;
+  callback(err);
 }
 function onCleanSuccess(callback, deletedItems)
 {
   console.log(Colors.green.underline('"clean" task completed successfully!'));
   if (deletedItems.length > 0)
   {
-    console.log(Colors.blue("Deleted items:"));
+    console.log(Colors.blue("\nDeleted items:"));
     deletedItems.forEach(function(filePath){
       console.log("\t- " + filePath);
     });
   }
+  callback();
 }
 
 /*
@@ -45,6 +46,6 @@ Gulp.task("clean", function(callback) {
 
   Del(targets, options).then(
     onCleanSuccess.bind(null, callback),
-    onCleanError
+    onCleanError.bind(null, callback)
   );
 });

@@ -15,26 +15,28 @@ var paths = require("../modules/paths");
 /*
  * Internal functions
  */
-function onSvgSpriteError(err)
+function onSvgSpriteError(callback, err)
 {
   console.log(Colors.red.underline('"svg" task failed!'));
   console.log("\t- Cause: " + err.message);
-  throw err;
+  console.log(Colors.bgYellow.black("Maybe an SVG file is not correctly formatted. Try to debug them using a web browser (i.e. Google Chrome)"));
+  callback(err);
 }
-function onSvgSpriteSuccess()
+function onSvgSpriteSuccess(callback)
 {
   console.log(Colors.green.underline('"svg" task completed successfully!'));
+  callback();
 }
 
 /*
  * Task
  */
-Gulp.task("svg", function() {
+Gulp.task("svg", function(callback) {
 
-  return Gulp
+  Gulp
     .src(paths.relocatePath(config.paths.sources.svg))
     .pipe(SvgSprite(config.svgSprite))
-    .on("error", onSvgSpriteError)
-    .on("end", onSvgSpriteSuccess)
+    .on("error", onSvgSpriteError.bind(null, callback))
+    .on("end", onSvgSpriteSuccess.bind(null, callback))
     .pipe(Gulp.dest(paths.relocatePath(config.paths.builds.svg[argv.mode])));
 });
