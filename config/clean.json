@@ -1,0 +1,10 @@
+{
+  "paths": {
+    "development": [
+      "tmp"
+    ],
+    "distributable": [
+      "dist"
+    ]
+  }
+}

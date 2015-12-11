@@ -17,6 +17,7 @@
     "browser-sync": "2.10.0",
     "colors": "1.1.2",
     "del": "2.2.0",
+    "errno": "0.1.4",
     "gulp": "3.9.0",
     "gulp-babel": "6.1.1",
     "gulp-jshint": "2.0.0",
@@ -31,6 +32,7 @@
     "yargs": "3.31.0"
   },
   "scripts": {
+    "clean": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js clean",
     "help": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js --help",
     "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass"
   }
