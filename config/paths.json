@@ -1,5 +1,9 @@
 {
   "sources": {
+    "js": [
+      "!src/vendors/**/*.js",
+      "src/**/*.js"
+    ],
     "sass": "src/sass/*.scss",
     "svg": "src/images/icons/svg/*.svg"
   },
@@ -7,6 +11,10 @@
     "css": {
       "development": "tmp/css",
       "distributable": "dist/css"
+    },
+    "js": {
+      "development": "tmp",
+      "distributable": "dist"
     },
     "svg": {
       "development": "tmp/images/sprites",

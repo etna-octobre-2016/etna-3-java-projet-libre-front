@@ -22,6 +22,7 @@
     "gulp-babel": "6.1.1",
     "gulp-jshint": "2.0.0",
     "gulp-notify": "2.2.0",
+    "gulp-replace-task": "0.11.0",
     "gulp-sass": "2.1.1",
     "gulp-svg-sprite": "1.2.16",
     "gulp-watch": "4.3.5",
@@ -34,6 +35,7 @@
   "scripts": {
     "clean": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js clean",
     "help": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js --help",
+    "javascript": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js javascript",
     "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass",
     "svg": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js svg"
   }
