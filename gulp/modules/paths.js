@@ -3,6 +3,7 @@
  */
 var Path = require("path");
 
+// TODO: use a single method for path string and paths array
 
 module.exports = {
 

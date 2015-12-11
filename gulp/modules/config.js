@@ -1,3 +1,5 @@
+// TODO: separate npm dependencies config from tasks config
+
 module.exports = {
   clean: require("../../config/clean.json"),
   jade: require("../../config/jade.json"),
