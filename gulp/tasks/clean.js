@@ -21,14 +21,18 @@ function onCleanError(err)
   console.log(Colors.red.underline('"clean" task failed!'));
   console.log("\t- Path: " + err.path);
   console.log("\t- Cause: " + Errno.code[err.code].description);
+  throw err;
 }
 function onCleanSuccess(callback, deletedItems)
 {
   console.log(Colors.green.underline('"clean" task completed successfully!'));
-  console.log(Colors.blue("Deleted items:"));
-  deletedItems.forEach(function(filePath){
-    console.log("\t- " + filePath);
-  });
+  if (deletedItems.length > 0)
+  {
+    console.log(Colors.blue("Deleted items:"));
+    deletedItems.forEach(function(filePath){
+      console.log("\t- " + filePath);
+    });
+  }
 }
 
 /*
