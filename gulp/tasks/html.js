@@ -19,8 +19,6 @@ Gulp.task("html", function(callback) {
 
   // TODO: add error handling
 
-  // TODO: add selection of languages using i18n value in html.json config file
-
   return Gulp
     .src(paths.relocate(config.paths.sources.html))
     .pipe(Jade(config.nodeModules.jade))
