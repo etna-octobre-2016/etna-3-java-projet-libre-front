@@ -19,10 +19,9 @@ function onSassError(callback, err)
 {
   console.log(Colors.red.underline('"sass" task failed!'));
   console.log("\t- Cause: " + err.message);
-  console.log(Colors.blue("Stack trace:"));
   callback(err);
 }
-function onSassSuccess(callback)
+function onTaskComplete(callback)
 {
   console.log(Colors.green.underline('"sass" task completed successfully!'));
   callback();
@@ -36,7 +35,7 @@ Gulp.task("sass", function(callback) {
   Gulp
     .src(paths.relocate(config.paths.sources.sass))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
-    .on("end", onSassSuccess.bind(null, callback))
-    .on("error", onSassError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.css[argv.mode])));
+      .on("error", onSassError.bind(null, callback))
+    .pipe(Gulp.dest(paths.relocate(config.paths.builds.css[argv.mode])))
+      .on("end", onTaskComplete.bind(null, callback));
 });
