@@ -14,16 +14,35 @@ var config = require("../modules/config");
 var paths = require("../modules/paths");
 var replace = require("../modules/replace");
 
+function onBabelError(callback, err)
+{
+  console.log(Colors.red.underline('"javascript" task failed!'));
+  console.log(err.name + ": " + err.message);
+  callback(err);
+}
+function onReplaceError(callback, err)
+{
+  console.log(Colors.red.underline('"javascript" task failed!'));
+  console.log(err);
+  callback(err);
+}
+function onTaskComplete(callback)
+{
+  console.log(Colors.green.underline('"javascript" task completed successfully!'));
+  callback();
+}
+
 /*
  * Task
  */
+Gulp.task("javascript", function(callback) {
 
-// TODO: add minification when mode === distributable
-Gulp.task("javascript", function() {
-
-  return Gulp
+  Gulp
     .src(paths.relocate(config.paths.sources.js))
     .pipe(replace)
+      .on("error", onReplaceError.bind(null, callback))
     .pipe(Babel())
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.js[argv.mode])));
+      .on("error", onBabelError.bind(null, callback))
+    .pipe(Gulp.dest(paths.relocate(config.paths.builds.js[argv.mode])))
+      .on("end", onTaskComplete.bind(null, callback));
 });
