@@ -4,6 +4,7 @@ module.exports = {
   },
   nodeModules: {
     jade: require("../../config/nodeModules/jade.json"),
+    jshint: require("../../config/nodeModules/jshint.json"),
     sass: require("../../config/nodeModules/sass.json"),
     svgSprite: require("../../config/nodeModules/svg-sprite.json")
   },

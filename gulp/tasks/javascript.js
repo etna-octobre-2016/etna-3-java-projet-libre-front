@@ -4,7 +4,8 @@
 var Babel = require("gulp-babel");
 var Colors = require("colors/safe");
 var Gulp = require("gulp");
-var Uglify = require("gulp-uglify");
+var JSHint = require("gulp-jshint");
+var JSHintStylish = require("jshint-stylish");
 
 /*
  * Modules
@@ -41,6 +42,8 @@ Gulp.task("javascript", function(callback) {
     .src(paths.relocate(config.common.paths.sources.js))
     .pipe(replace)
       .on("error", onReplaceError.bind(null, callback))
+    .pipe(JSHint(config.nodeModules.jshint))
+    .pipe(JSHint.reporter(JSHintStylish))
     .pipe(Babel())
       .on("error", onBabelError.bind(null, callback))
     .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.js[argv.mode])))
