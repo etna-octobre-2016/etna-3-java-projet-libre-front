@@ -40,11 +40,11 @@ function onTaskComplete(callback)
 Gulp.task("html", function(callback) {
 
   Gulp
-    .src(paths.relocate(config.paths.sources.html))
+    .src(paths.relocate(config.common.paths.sources.html))
     .pipe(Jade(config.nodeModules.jade))
       .on("error", onJadeError.bind(null, callback))
     .pipe(replace)
       .on("error", onReplaceError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.html[argv.mode])))
+    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.html[argv.mode])))
       .on("end", onTaskComplete.bind(null, callback));
 });

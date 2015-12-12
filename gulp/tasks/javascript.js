@@ -38,11 +38,11 @@ function onTaskComplete(callback)
 Gulp.task("javascript", function(callback) {
 
   Gulp
-    .src(paths.relocate(config.paths.sources.js))
+    .src(paths.relocate(config.common.paths.sources.js))
     .pipe(replace)
       .on("error", onReplaceError.bind(null, callback))
     .pipe(Babel())
       .on("error", onBabelError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.js[argv.mode])))
+    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.js[argv.mode])))
       .on("end", onTaskComplete.bind(null, callback));
 });

@@ -1,11 +1,13 @@
 module.exports = {
-  nodeModules: {
-    jade: require("../../config/jade.json"),
-    sass: require("../../config/sass.json"),
-    svgSprite: require("../../config/svg-sprite.json")
+  common: {
+    paths: require("../../config/common/paths.json")
   },
-  paths: require("../../config/paths.json"),
+  nodeModules: {
+    jade: require("../../config/nodeModules/jade.json"),
+    sass: require("../../config/nodeModules/sass.json"),
+    svgSprite: require("../../config/nodeModules/svg-sprite.json")
+  },
   tasks: {
-    clean: require("../../config/clean.json")
+    clean: require("../../config/tasks/clean.json")
   }
 };

@@ -34,9 +34,9 @@ function onSvgSpriteSuccess(callback)
 Gulp.task("svg", function(callback) {
 
   Gulp
-    .src(paths.relocate(config.paths.sources.svg))
+    .src(paths.relocate(config.common.paths.sources.svg))
     .pipe(SvgSprite(config.nodeModules.svgSprite))
     .on("error", onSvgSpriteError.bind(null, callback))
     .on("end", onSvgSpriteSuccess.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.svg[argv.mode])));
+    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.svg[argv.mode])));
 });

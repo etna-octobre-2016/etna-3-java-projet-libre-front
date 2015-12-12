@@ -33,9 +33,9 @@ function onTaskComplete(callback)
 Gulp.task("sass", function(callback) {
 
   Gulp
-    .src(paths.relocate(config.paths.sources.sass))
+    .src(paths.relocate(config.common.paths.sources.sass))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
       .on("error", onSassError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.paths.builds.css[argv.mode])))
+    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.css[argv.mode])))
       .on("end", onTaskComplete.bind(null, callback));
 });
