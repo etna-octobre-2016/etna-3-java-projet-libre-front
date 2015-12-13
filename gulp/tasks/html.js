@@ -26,6 +26,7 @@ function onJadeError(callback, err)
 function onTaskComplete(callback)
 {
   console.log(Colors.green.underline('"html" task completed successfully!'));
+  global.browserSync.reload();
   callback();
 }
 
