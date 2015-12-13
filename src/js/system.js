@@ -1,3 +1,5 @@
+"use strict";
+
 System.config({
   baseURL: "js",
   map: {

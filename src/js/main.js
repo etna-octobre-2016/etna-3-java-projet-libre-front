@@ -1,3 +1,5 @@
+"use strict";
+
 import Vue from "vue";
 import Request from "modules/request.js";
 import exampleJSON from "../assets/data/example.json!json";
