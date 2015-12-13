@@ -38,12 +38,6 @@
   "scripts": {
     "build": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js build",
     "clean": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js clean",
-    "dev": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js dev",
-    "help": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js --help",
-    "html": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js html",
-    "javascript": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js javascript",
-    "livereload": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js livereload",
-    "sass": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js sass",
-    "svg": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js svg"
+    "dev": "node_modules/gulp/bin/gulp.js --gulpfile gulp/gulpfile.js dev"
   }
 }
