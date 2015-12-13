@@ -37,5 +37,6 @@ Gulp.task("sass", function(callback) {
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
       .on("error", onSassError.bind(null, callback))
     .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.css[argv.mode])))
-      .on("end", onTaskComplete.bind(null, callback));
+      .on("end", onTaskComplete.bind(null, callback))
+    .pipe(global.browserSync.stream());
 });
