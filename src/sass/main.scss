@@ -1,6 +1,8 @@
-$color: #CD0000;
+// Vendors
+@import "vendors/bourbon";
+@import "vendors/neat";
 
-body {
-
-  background-color: $color;
-}
+// Base
+@import "base/breakpoints";
+@import "base/fonts";
+@import "base/html";
