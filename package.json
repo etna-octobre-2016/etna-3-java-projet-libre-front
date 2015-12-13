@@ -22,17 +22,13 @@
     "gulp-babel": "6.1.1",
     "gulp-jade": "1.1.0",
     "gulp-jshint": "2.0.0",
-    "gulp-notify": "2.2.0",
     "gulp-replace-task": "0.11.0",
     "gulp-sass": "2.1.1",
     "gulp-svg-sprite": "1.2.16",
     "gulp-watch": "4.3.5",
-    "jasmine": "2.4.1",
     "jshint": "2.8.0",
     "jshint-stylish": "2.1.0",
-    "json-server": "0.8.3",
     "run-sequence": "1.1.5",
-    "selenium-webdriver": "2.48.2",
     "yargs": "3.31.0"
   },
   "scripts": {
