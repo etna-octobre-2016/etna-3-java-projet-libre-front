@@ -1,0 +1,26 @@
+<link rel="import" href="../vendors/polymer/polymer.html">
+<dom-module id="example-component">
+  <template>
+    <!-- scoped CSS for this element -->
+    <style>
+      div
+      {
+        display: inline-block;
+        background-color: pink;
+        border-radius: 8px;
+        padding: 4px;
+      }
+    </style>
+    <div>
+      <h1>This is the "example" component</h1>
+      <p>You can use it as a template for your own components.</p>
+      <!-- any children are rendered here -->
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "example-component",
+    });
+  </script>
+</dom-module>

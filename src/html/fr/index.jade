@@ -3,6 +3,9 @@ extends layouts/default.jade
 block title
   title [@@ENV] Accueil
 
+block components
+  link(rel="import", href="components/example.html")
+
 block content
   p
     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
@@ -10,3 +13,6 @@ block content
     | laboris nisi ut aliquip ex ea <a href="world">commodo</a> consequat. Duis aute irure dolor in reprehenderit
     | in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
     | non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  
+  example-component
+    img(src="http://placehold.it/300x300", alt="")
