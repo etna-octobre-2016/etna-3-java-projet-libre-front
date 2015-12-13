@@ -39,7 +39,8 @@ Gulp.task("svg", function(callback) {
       output,
       sources;
 
-  destination = paths.relocate(config.common.paths.builds.svg[argv.mode]);
+  destination = (argv.mode === "distributable") ? config.common.paths.builds.svg[argv.mode][argv.env] : config.common.paths.builds.svg[argv.mode];
+  destination = paths.relocate(destination);
   output = destination + "/" + config.nodeModules.svgSprite.mode.symbol.sprite;
   sources = paths.relocate(config.common.paths.sources.svg);
   Del.sync(output, {force: true});

@@ -11,19 +11,31 @@
   "builds": {
     "css": {
       "development": "tmp/css",
-      "distributable": "dist/css"
+      "distributable": {
+        "pre-production": "dist/pre-production/css",
+        "production": "dist/production/css"
+      }
     },
     "html": {
       "development": "tmp",
-      "distributable": "dist"
+      "distributable": {
+        "pre-production": "dist/pre-production",
+        "production": "dist/production"
+      }
     },
     "js": {
       "development": "tmp",
-      "distributable": "dist"
+      "distributable": {
+        "pre-production": "dist/pre-production",
+        "production": "dist/production"
+      }
     },
     "svg": {
       "development": "tmp/images/sprites",
-      "distributable": "dist/images/sprites"
+      "distributable": {
+        "pre-production": "dist/pre-production/images/sprites",
+        "production": "dist/production/images/sprites"
+      }
     }
   }
 }

@@ -37,6 +37,9 @@ function onTaskComplete(callback)
  */
 Gulp.task("javascript", function(callback) {
 
+  var destination;
+
+  destination = (argv.mode === "distributable") ? config.common.paths.builds.js[argv.mode][argv.env] : config.common.paths.builds.js[argv.mode];
   Gulp
     .src(paths.relocate(config.common.paths.sources.js))
     .pipe(Replace(replace))
@@ -44,6 +47,6 @@ Gulp.task("javascript", function(callback) {
     .pipe(JSHint.reporter(JSHintStylish))
     .pipe(Babel())
       .on("error", onBabelError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.js[argv.mode])))
+    .pipe(Gulp.dest(paths.relocate(destination)))
       .on("end", onTaskComplete.bind(null, callback));
 });

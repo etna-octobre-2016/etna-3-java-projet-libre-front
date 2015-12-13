@@ -32,11 +32,14 @@ function onTaskComplete(callback)
  */
 Gulp.task("sass", function(callback) {
 
+  var destination;
+
+  destination = (argv.mode === "distributable") ? config.common.paths.builds.css[argv.mode][argv.env] : config.common.paths.builds.css[argv.mode];
   Gulp
     .src(paths.relocate(config.common.paths.sources.sass))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
       .on("error", onSassError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.css[argv.mode])))
+    .pipe(Gulp.dest(paths.relocate(destination)))
       .on("end", onTaskComplete.bind(null, callback))
     .pipe(global.browserSync.stream());
 });
