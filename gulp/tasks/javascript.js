@@ -6,6 +6,7 @@ var Colors = require("colors/safe");
 var Gulp = require("gulp");
 var JSHint = require("gulp-jshint");
 var JSHintStylish = require("jshint-stylish");
+var Replace = require("gulp-replace-task");
 
 /*
  * Modules
@@ -21,12 +22,6 @@ function onBabelError(callback, err)
   console.log(err.name + ": " + err.message);
   callback(err);
 }
-function onReplaceError(callback, err)
-{
-  console.log(Colors.red.underline('"javascript" task failed!'));
-  console.log(err);
-  callback(err);
-}
 function onTaskComplete(callback)
 {
   console.log(Colors.green.underline('"javascript" task completed successfully!'));
@@ -40,8 +35,7 @@ Gulp.task("javascript", function(callback) {
 
   Gulp
     .src(paths.relocate(config.common.paths.sources.js))
-    .pipe(replace)
-      .on("error", onReplaceError.bind(null, callback))
+    .pipe(Replace(replace))
     .pipe(JSHint(config.nodeModules.jshint))
     .pipe(JSHint.reporter(JSHintStylish))
     .pipe(Babel())

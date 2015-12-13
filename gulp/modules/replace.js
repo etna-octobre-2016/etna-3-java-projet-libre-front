@@ -1,15 +1,10 @@
 /*
- * Node Dependencies
- */
-var Replace = require("gulp-replace-task");
-
-/*
  * Modules
  */
 var argv = require("../modules/argv");
 var config = require("../modules/config");
 
-module.exports = Replace({
+module.exports = {
 
   patterns: [
     {
@@ -17,4 +12,4 @@ module.exports = Replace({
       replacement: Date.now()
     }
   ]
-});
+};

@@ -4,6 +4,7 @@
 var Colors = require("colors");
 var Gulp = require("gulp");
 var Jade = require("gulp-jade");
+var Replace = require("gulp-replace-task");
 
 /*
  * Modules
@@ -22,12 +23,6 @@ function onJadeError(callback, err)
   console.log(err.message);
   callback(err);
 }
-function onReplaceError(callback, err)
-{
-  console.log(Colors.red.underline('"html" task failed!'));
-  console.log(err);
-  callback(err);
-}
 function onTaskComplete(callback)
 {
   console.log(Colors.green.underline('"html" task completed successfully!'));
@@ -43,8 +38,7 @@ Gulp.task("html", function(callback) {
     .src(paths.relocate(config.common.paths.sources.html))
     .pipe(Jade(config.nodeModules.jade))
       .on("error", onJadeError.bind(null, callback))
-    .pipe(replace)
-      .on("error", onReplaceError.bind(null, callback))
+    .pipe(Replace(replace))
     .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.html[argv.mode])))
       .on("end", onTaskComplete.bind(null, callback));
 });
