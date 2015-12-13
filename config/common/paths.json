@@ -5,7 +5,7 @@
       "watch": "src/html/**/*.html"
     },
     "jade": {
-      "default": "src/html/**/*.jade",
+      "default": "src/html/*/*.jade",
       "watch": "src/html/**/*.jade"
     },
     "js": [
