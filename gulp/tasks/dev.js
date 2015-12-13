@@ -18,7 +18,7 @@ Gulp.task("dev", function(callback) {
 
   RunSequence("clean", "sass", "svg", "html", "javascript", "livereload", function() {
 
-    Watch(paths.relocate(config.common.paths.sources.html), function() {
+    Watch(paths.relocate(config.common.paths.sources.html.watch), function() {
       RunSequence("html");
     });
     Watch(paths.relocate(config.common.paths.sources.js), function() {

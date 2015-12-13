@@ -1,6 +1,9 @@
 {
   "sources": {
-    "html": "src/html/*/*.{html,jade}",
+    "html": {
+      "default": "src/html/*/*.{html,jade}",
+      "watch": "src/html/**/*.{html,jade}"
+    },
     "js": [
       "!src/vendors/**/*.js",
       "src/**/*.js"

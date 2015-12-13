@@ -39,7 +39,7 @@ Gulp.task("html", function(callback) {
 
   destination = (argv.mode === "distributable") ? config.common.paths.builds.html[argv.mode][argv.env] : config.common.paths.builds.html[argv.mode];
   Gulp
-    .src(paths.relocate(config.common.paths.sources.html))
+    .src(paths.relocate(config.common.paths.sources.html.default))
     .pipe(Jade(config.nodeModules.jade))
       .on("error", onJadeError.bind(null, callback))
     .pipe(Replace({
