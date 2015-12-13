@@ -42,7 +42,9 @@
     "base": "src",
     "source": [
       "!src/assets/images/icons{,/**}",
-      "src/assets/**"
+      "!src/vendors/{bourbon,neat}{,/**}",
+      "src/assets/**",
+      "src/vendors/**"
     ],
     "destination": {
       "pre-production": "dist/pre-production",
