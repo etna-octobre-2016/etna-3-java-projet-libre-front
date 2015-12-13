@@ -6,7 +6,7 @@
       "src/**/*.js"
     ],
     "sass": "src/sass/*.scss",
-    "svg": "src/images/icons/svg/*.svg"
+    "svg": "src/assets/images/icons/svg/*.svg"
   },
   "builds": {
     "css": {
@@ -31,10 +31,10 @@
       }
     },
     "svg": {
-      "development": "tmp/images/sprites",
+      "development": "tmp/assets/images/sprites",
       "distributable": {
-        "pre-production": "dist/pre-production/images/sprites",
-        "production": "dist/production/images/sprites"
+        "pre-production": "dist/pre-production/assets/images/sprites",
+        "production": "dist/production/assets/images/sprites"
       }
     }
   }
