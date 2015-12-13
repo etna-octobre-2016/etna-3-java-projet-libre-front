@@ -35,7 +35,11 @@ var router = new Router([
   }
 ], function(route){
 
-    console.log(route);
+    var view = new Vue({
+      replace: false,
+      el: "#main",
+      template: JSON.stringify(route)
+    });
 });
 router.setDefaultRoute("home");
 router.init();
