@@ -42,7 +42,9 @@ Gulp.task("javascript", function(callback) {
   destination = (argv.mode === "distributable") ? config.common.paths.builds.js[argv.mode][argv.env] : config.common.paths.builds.js[argv.mode];
   Gulp
     .src(paths.relocate(config.common.paths.sources.js))
-    .pipe(Replace(replace))
+    .pipe(Replace({
+      patterns: replace.patterns[argv.env]
+    }))
     .pipe(JSHint(config.nodeModules.jshint))
     .pipe(JSHint.reporter(JSHintStylish))
     .pipe(Babel())

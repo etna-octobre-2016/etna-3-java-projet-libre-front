@@ -42,7 +42,9 @@ Gulp.task("html", function(callback) {
     .src(paths.relocate(config.common.paths.sources.html))
     .pipe(Jade(config.nodeModules.jade))
       .on("error", onJadeError.bind(null, callback))
-    .pipe(Replace(replace))
+    .pipe(Replace({
+      patterns: replace.patterns[argv.env]
+    }))
     .pipe(Gulp.dest(paths.relocate(destination)))
       .on("end", onTaskComplete.bind(null, callback));
 });

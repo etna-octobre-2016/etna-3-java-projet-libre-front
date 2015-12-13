@@ -1,15 +1,39 @@
 /*
- * Modules
+ * Module
  */
-var argv = require("../modules/argv");
-var config = require("../modules/config");
-
 module.exports = {
 
-  patterns: [
-    {
-      match: "CACHE_BUST",
-      replacement: Date.now()
-    }
-  ]
+  patterns: {
+
+    "development": [
+      {
+        match: "CACHE_BUST",
+        replacement: Date.now()
+      },
+      {
+        match: "ENV",
+        replacement: "DEV"
+      }
+    ],
+    "pre-production": [
+      {
+        match: "CACHE_BUST",
+        replacement: Date.now()
+      },
+      {
+        match: "ENV",
+        replacement: "PRE-PROD"
+      }
+    ],
+    "production": [
+      {
+        match: "CACHE_BUST",
+        replacement: Date.now()
+      },
+      {
+        match: "ENV",
+        replacement: "PRODUCTION"
+      }
+    ]
+  }
 };
