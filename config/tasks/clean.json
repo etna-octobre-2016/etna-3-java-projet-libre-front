@@ -4,6 +4,7 @@
       "tmp"
     ],
     "distributable": [
+      "tmp",
       "dist"
     ]
   }
