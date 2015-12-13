@@ -1,8 +1,8 @@
 {
   "server": {
     "baseDir": [
-      "src",
-      "tmp"
+      "tmp",
+      "src"
     ],
     "directory": true
   }
