@@ -16,6 +16,9 @@ var config = require("../modules/config");
 var paths = require("../modules/paths");
 var replace = require("../modules/replace");
 
+/*
+ * Internal functions
+ */
 function onBabelError(callback, err)
 {
   console.log(Colors.red.underline('"javascript" task failed!'));
