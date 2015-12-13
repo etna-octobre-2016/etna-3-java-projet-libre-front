@@ -28,6 +28,7 @@ function onBabelError(callback, err)
 function onTaskComplete(callback)
 {
   console.log(Colors.green.underline('"javascript" task completed successfully!'));
+  global.browserSync.reload();
   callback();
 }
 

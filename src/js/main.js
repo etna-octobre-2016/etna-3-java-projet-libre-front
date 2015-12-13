@@ -1,3 +1,1 @@
-import Request from "modules/request.js";
-
-var r = new Request();
+alert("main.js file loaded");

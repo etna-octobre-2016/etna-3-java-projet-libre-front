@@ -22,7 +22,7 @@ Gulp.task("dev", function(callback) {
       RunSequence("html");
     });
     Watch(paths.relocate(config.common.paths.sources.js), function() {
-      RunSequence("js");
+      RunSequence("javascript");
     });
     Watch(paths.relocate(config.common.paths.sources.sass), function() {
       RunSequence("sass");
