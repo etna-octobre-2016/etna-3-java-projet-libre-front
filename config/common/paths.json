@@ -1,8 +1,12 @@
 {
   "sources": {
     "html": {
-      "default": "src/html/*/*.{html,jade}",
-      "watch": "src/html/**/*.{html,jade}"
+      "default": "src/html/**/*.html",
+      "watch": "src/html/**/*.html"
+    },
+    "jade": {
+      "default": "src/html/**/*.jade",
+      "watch": "src/html/**/*.jade"
     },
     "js": [
       "!src/vendors/**/*.js",

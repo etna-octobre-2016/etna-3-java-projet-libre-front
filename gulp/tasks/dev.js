@@ -16,10 +16,13 @@ var paths = require("../modules/paths");
  */
 Gulp.task("dev", function(callback) {
 
-  RunSequence("clean", "sass", "svg", "html", "javascript", "livereload", function() {
+  RunSequence("clean", "sass", "svg", "html", "jade", "javascript", "livereload", function() {
 
     Watch(paths.relocate(config.common.paths.sources.html.watch), function() {
       RunSequence("html");
+    });
+    Watch(paths.relocate(config.common.paths.sources.jade.watch), function() {
+      RunSequence("jade");
     });
     Watch(paths.relocate(config.common.paths.sources.js), function() {
       RunSequence("javascript");

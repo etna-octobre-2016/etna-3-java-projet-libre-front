@@ -3,6 +3,7 @@
  */
 var Colors = require("colors");
 var Gulp = require("gulp");
+var Jade = require("gulp-jade");
 var Replace = require("gulp-replace-task");
 
 /*
@@ -16,9 +17,15 @@ var paths = require("../modules/paths");
 /*
  * Internal functions
  */
+function onJadeError(callback, err)
+{
+  console.log(Colors.red.underline('"jade" task failed!'));
+  console.log(err.message);
+  callback(err);
+}
 function onTaskComplete(callback)
 {
-  console.log(Colors.green.underline('"html" task completed successfully!'));
+  console.log(Colors.green.underline('"jade" task completed successfully!'));
   global.browserSync.reload();
   callback();
 }
@@ -26,13 +33,15 @@ function onTaskComplete(callback)
 /*
  * Task
  */
-Gulp.task("html", function(callback) {
+Gulp.task("jade", function(callback) {
 
   var destination;
 
   destination = (argv.mode === "distributable") ? config.common.paths.builds.html[argv.mode][argv.env] : config.common.paths.builds.html[argv.mode];
   Gulp
-    .src(paths.relocate(config.common.paths.sources.html.default))
+    .src(paths.relocate(config.common.paths.sources.jade.default))
+    .pipe(Jade(config.nodeModules.jade))
+      .on("error", onJadeError.bind(null, callback))
     .pipe(Replace({
       patterns: replace.patterns[argv.env]
     }))
