@@ -8,7 +8,23 @@ var Path = require("path");
  */
 function relocate(path)
 {
-  return Path.resolve("../", path);
+  var isExcluded,
+      relocatedPath;
+
+  isExcluded = false;
+  if (path.charAt(0) === '!')
+  {
+    isExcluded = true;
+  }
+  if (isExcluded)
+  {
+    relocatedPath = "!" + Path.resolve("../", path.substring(1));
+  }
+  else
+  {
+    relocatedPath = Path.resolve("../", path);
+  }
+  return relocatedPath;
 }
 
 module.exports = {

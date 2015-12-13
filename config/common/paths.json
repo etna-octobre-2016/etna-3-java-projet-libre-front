@@ -37,5 +37,16 @@
         "production": "dist/production/assets/images/sprites"
       }
     }
+  },
+  "static": {
+    "base": "src",
+    "source": [
+      "!src/assets/images/icons{,/**}",
+      "src/assets/**"
+    ],
+    "destination": {
+      "pre-production": "dist/pre-production",
+      "production": "dist/production"
+    }
   }
 }
