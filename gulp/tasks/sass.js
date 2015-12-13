@@ -36,7 +36,7 @@ Gulp.task("sass", function(callback) {
 
   destination = (argv.mode === "distributable") ? config.common.paths.builds.css[argv.mode][argv.env] : config.common.paths.builds.css[argv.mode];
   Gulp
-    .src(paths.relocate(config.common.paths.sources.sass))
+    .src(paths.relocate(config.common.paths.sources.sass.default))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
       .on("error", onSassError.bind(null, callback))
     .pipe(Gulp.dest(paths.relocate(destination)))

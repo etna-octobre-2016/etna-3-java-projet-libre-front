@@ -8,7 +8,10 @@
       "!src/vendors/**/*.js",
       "src/**/*.js"
     ],
-    "sass": "src/sass/*.scss",
+    "sass": {
+        "default": "src/sass/*.scss",
+        "watch": "src/sass/**/*.scss"
+    },
     "svg": "src/assets/images/icons/svg/*.svg"
   },
   "builds": {

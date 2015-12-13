@@ -24,7 +24,7 @@ Gulp.task("dev", function(callback) {
     Watch(paths.relocate(config.common.paths.sources.js), function() {
       RunSequence("javascript");
     });
-    Watch(paths.relocate(config.common.paths.sources.sass), function() {
+    Watch(paths.relocate(config.common.paths.sources.sass.watch), function() {
       RunSequence("sass");
     });
     Watch(paths.relocate(config.common.paths.sources.svg), function() {
