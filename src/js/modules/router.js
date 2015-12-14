@@ -12,12 +12,11 @@ class RouterException extends Error
 
 export default class Router
 {
-  constructor(routes, callback)
+  constructor(routes)
   {
     this.validateRoutes(routes);
-    this.validateCallback(callback);
 
-    this.callback = callback;
+    this.callback = null;
     this.defaultRoute = "";
     this.routes = routes;
   }
@@ -34,15 +33,15 @@ export default class Router
     this.r5.setOption("defaultRoute", this.defaultRoute);
     this.r5.usePlugin(Router5History());
     this.r5.usePlugin(Router5Listeners());
-    this.r5.addListener(this.onRouteChange.bind(this));
+    this.r5.addListener((route) => {
+      this.callback({ name: route.name, uri: route.path });
+    });
     this.r5.start();
   }
-  onRouteChange(route)
+  onRouteChange(cb)
   {
-    this.callback({
-      name: route.name,
-      uri: route.path
-    });
+    this.validateCallback(cb);
+    this.callback = cb;
   }
   setDefaultRoute(name)
   {

@@ -33,14 +33,17 @@ var router = new Router([
     name: "about",
     uri: "/about"
   }
-], function(route){
+]);
+router.setDefaultRoute("home");
+router.onRouteChange(function(route){
 
+    console.log("route");
+    console.log(route);
     var view = new Vue({
       replace: false,
       el: "#main",
       template: JSON.stringify(route)
     });
 });
-router.setDefaultRoute("home");
 router.init();
 console.log(router.defaultRoute);
