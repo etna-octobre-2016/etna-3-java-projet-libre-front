@@ -28,6 +28,7 @@
     "gulp-watch": "4.3.5",
     "jshint": "2.8.0",
     "jshint-stylish": "2.1.0",
+    "json-server": "0.8.4",
     "run-sequence": "1.1.5",
     "yargs": "3.31.0"
   },

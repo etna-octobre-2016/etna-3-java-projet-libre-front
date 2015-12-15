@@ -6,13 +6,13 @@ import Router from "modules/router.js";
 import exampleJSON from "../assets/data/example.json!json";
 import exampleText from "../assets/data/example.json!text";
 
-var req = new Request("http://localhost:3000/assets/data/example.json");
+var req = new Request("@@API_BASE_URL/posts");
 
 req.send().then(
   function(xhr) {
 
     console.log("request OK");
-    console.log(xhr.responseText);
+    console.log(JSON.parse(xhr.responseText));
   },
   function(xhr) {
 

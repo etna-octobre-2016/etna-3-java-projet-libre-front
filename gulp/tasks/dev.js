@@ -16,7 +16,7 @@ var paths = require("../modules/paths");
  */
 Gulp.task("dev", function(callback) {
 
-  RunSequence("clean", "sass", "svg", "html", "jade", "javascript", "livereload", function() {
+  RunSequence("clean", "sass", "svg", "html", "jade", "javascript", "api", "livereload", function() {
 
     Watch(paths.relocate(config.common.paths.sources.html.watch), function() {
       RunSequence("html");
