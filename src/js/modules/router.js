@@ -2,6 +2,8 @@ import {Router5} from "router5";
 import Router5History from "router5History";
 import Router5Listeners from "router5Listeners";
 
+let instance = null;
+
 class RouterException extends Error
 {
   constructor(message)
@@ -14,11 +16,15 @@ export default class Router
 {
   constructor(routes)
   {
-    this.validateRoutes(routes);
-
-    this.callback = null;
-    this.defaultRoute = "";
-    this.routes = routes;
+    if (instance === null)
+    {
+      instance = this;
+      this.validateRoutes(routes);
+      this.callback = null;
+      this.defaultRoute = "";
+      this.routes = routes;
+    }
+    return instance;
   }
   init()
   {
