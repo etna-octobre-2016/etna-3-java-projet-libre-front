@@ -20,6 +20,7 @@
     "errno": "0.1.4",
     "gulp": "3.9.0",
     "gulp-babel": "6.1.1",
+    "gulp-inline-source": "2.1.0",
     "gulp-jade": "1.1.0",
     "gulp-jshint": "2.0.0",
     "gulp-replace-task": "0.11.0",

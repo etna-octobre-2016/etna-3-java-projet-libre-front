@@ -1,4 +1,4 @@
-include ../includes/common/mixins.jade
+include ../../common/includes/mixins.jade
 
 doctype html
 html(lang="fr-FR")
@@ -12,11 +12,12 @@ html(lang="fr-FR")
       title Titre de la page
     link(rel="stylesheet", href="vendors/normalize-css/normalize.css?bust=@@CACHE_BUST")
     link(rel="stylesheet", href="css/main.css?bust=@@CACHE_BUST")
+    link(rel="import", href="vendors/polymer/polymer.html")
     block components
   body
-    include ../includes/common/header.jade
+    include ../common/includes/header.jade
     main#main
       block content
-    include ../includes/common/footer.jade
+    include ../common/includes/footer.jade
     script(src="vendors/system.js/dist/system.js?bust=@@CACHE_BUST")
     script(src="js/system.js?bust=@@CACHE_BUST")

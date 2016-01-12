@@ -45,5 +45,5 @@ router.onRouteChange(function(route){
       template: JSON.stringify(route)
     });
 });
-router.init();
+// router.init();
 console.log(router.defaultRoute);

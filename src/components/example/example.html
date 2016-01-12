@@ -1,6 +1,11 @@
-<link rel="import" href="../vendors/polymer/polymer.html">
 <dom-module id="example-component">
   <template>
+    <!-- 
+      this css is compiled from the .scss file in the component/example directory,
+      and injected inline with the "inline" attribute.
+    -->
+    <link rel="stylesheet" href="example/example.css" inline>
+    
     <!-- scoped CSS for this element -->
     <style>
       div
@@ -12,8 +17,7 @@
       }
     </style>
     <div>
-      <h1>This is the "example" component</h1>
-      <p>You can use it as a template for your own components.</p>
+      <h1>Hello world</h1>
       <!-- any children are rendered here -->
       <content></content>
     </div>
