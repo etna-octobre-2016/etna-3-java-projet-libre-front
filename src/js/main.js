@@ -1,49 +1,39 @@
-"use strict";
-
+/*
+ * Dependencies
+ */
 import Vue from "vue";
-import Request from "modules/request.js";
-import Router from "modules/router.js";
-import exampleJSON from "../assets/data/example.json!json";
-import exampleText from "../assets/data/example.json!text";
+import Events from "modules/events.js";
+import * as router from "core/router.js";
+import * as sections from "core/sections.js";
 
-var req = new Request("@@API_BASE_URL/posts");
+var mainView;
 
-req.send().then(
-  function(xhr) {
-
-    console.log("request OK");
-    console.log(JSON.parse(xhr.responseText));
+mainView = new Vue({
+  
+  el: "body",
+  data: {
+    currentSection: null
   },
-  function(xhr) {
-
-    console.log("request KO !!!!!");
-    console.log(xhr);
-  });
-console.log(exampleJSON);
-console.log(exampleText);
-console.log(Vue.version);
-console.log(Request);
-
-var router = new Router([
-  {
-    name: "home",
-    uri: "/home"
-  },
-  {
-    name: "about",
-    uri: "/about"
-  }
-]);
-router.setDefaultRoute("home");
-router.onRouteChange(function(route){
-
-    console.log("route");
-    console.log(route);
-    var view = new Vue({
-      replace: false,
-      el: "#main",
-      template: JSON.stringify(route)
+  ready: function() {
+    
+    sections.init();
+    
+    Events.on("section:destroyed", () => {  
+      
+      this.isLoading = true;
     });
+    
+    Events.on("section:loaded", () => {
+      
+      this.isLoading = false;
+    });
+    
+    Events.on("router:update", (route) => {
+      
+      this.currentSection = route.name;  
+      Events.emit("section:load", route);
+    });
+    
+    router.init();
+  }
 });
-// router.init();
-console.log(router.defaultRoute);
