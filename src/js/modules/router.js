@@ -2,13 +2,12 @@ import {Router5} from "router5";
 import Router5History from "router5History";
 import Router5Listeners from "router5Listeners";
 
-let instance = null;
-
 class RouterException extends Error
 {
   constructor(message)
   {
     super(message);
+    this.name = "RouterException";
   }
 }
 
@@ -16,15 +15,11 @@ export default class Router
 {
   constructor(routes)
   {
-    if (instance === null)
-    {
-      instance = this;
-      this.validateRoutes(routes);
-      this.callback = null;
-      this.defaultRoute = "";
-      this.routes = routes;
-    }
-    return instance;
+    this.validateRoutes(routes);
+
+    this.callback = null;
+    this.defaultRoute = "";
+    this.routes = routes;
   }
   init()
   {
@@ -40,7 +35,11 @@ export default class Router
     this.r5.usePlugin(Router5History());
     this.r5.usePlugin(Router5Listeners());
     this.r5.addListener((route) => {
-      this.callback({ name: route.name, uri: route.path });
+      this.callback({
+        name:   route.name,
+        params: route.params,
+        uri:    route.path
+      });
     });
     this.r5.start();
   }
