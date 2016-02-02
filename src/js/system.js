@@ -2,7 +2,13 @@
 
 System.config({
   baseURL: "js",
+  map: {
+    core: "core",
+    modules: "modules",
+    sections: "../../sections"
+  },
   paths: {
+    eventEmitter: "../vendors/eventEmitter/EventEmitter.min.js",
     json: "../vendors/plugin-json/json.js",
     router5: "../vendors/router5/dist/amd/router5.min.js",
     router5Listeners: "../vendors/router5-listeners/dist/amd/router5-listeners.min.js",
