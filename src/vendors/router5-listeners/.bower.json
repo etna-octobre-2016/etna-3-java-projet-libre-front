@@ -41,7 +41,6 @@
     "commit": "e77a75afc7958f4d94929380d88330b422c8b9b9"
   },
   "_source": "git://github.com/router5/router5-listeners.git",
-  "_target": "~1.0.0",
-  "_originalSource": "router5-listeners",
-  "_direct": true
+  "_target": "1.0.0",
+  "_originalSource": "router5-listeners"
 }

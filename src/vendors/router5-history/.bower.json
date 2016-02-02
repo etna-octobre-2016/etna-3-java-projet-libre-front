@@ -43,7 +43,6 @@
     "commit": "cf694f45b59de26670a14906e8d485c851757443"
   },
   "_source": "git://github.com/router5/router5-history.git",
-  "_target": "~1.0.1",
-  "_originalSource": "router5-history",
-  "_direct": true
+  "_target": "1.0.1",
+  "_originalSource": "router5-history"
 }
