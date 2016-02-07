@@ -19,5 +19,6 @@ html(lang="fr-FR")
     main#main
       block content
     include ../common/includes/footer.jade
+    script(src="vendors/babel-polyfill/polyfill.min.js?bust=@@CACHE_BUST")
     script(src="vendors/system.js/dist/system.js?bust=@@CACHE_BUST")
     script(src="js/system.js?bust=@@CACHE_BUST")
