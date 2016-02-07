@@ -3,8 +3,11 @@
   "devel": true,
   "eqeqeq": true,
   "esnext": true,
+  "globals": {
+    "System": false
+  },
   "node": true,
-  "strict": true,
+  "strict": false,
   "undef": true,
   "unused": true
 }
