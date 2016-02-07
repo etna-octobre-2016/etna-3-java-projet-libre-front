@@ -6,6 +6,7 @@ $mq-mobile-landscape    : 480px !default;
 $mq-tablet-portrait     : 768px !default;
 $mq-tablet-landscape    : 1024px !default;
 $mq-desktop             : 1280px !default;
+$mq-desktop-xl          : 1600px !default;
 
 /*
  * Breakpoints list
@@ -72,7 +73,7 @@ $mq-list:
 }
 @mixin mobile-landscape-and-up
 {
-  @media (min-width: $mq-mobile-landscape)
+  @media (min-width: $mq-mobile-landscape) and (orientation: landscape)
   {
     @content;
   }
@@ -86,7 +87,7 @@ $mq-list:
 }
 @mixin tablet-landscape-and-up
 {
-  @media (min-width: $mq-tablet-landscape)
+  @media (min-width: $mq-tablet-landscape) and (orientation: landscape)
   {
     @content;
   }
@@ -94,6 +95,13 @@ $mq-list:
 @mixin desktop
 {
   @media (min-width: $mq-desktop)
+  {
+    @content;
+  }
+}
+@mixin desktop-xl
+{
+  @media (min-width: $mq-desktop-xl)
   {
     @content;
   }
