@@ -39,6 +39,10 @@ $mq-list:
 
 @if $debug == true
 {
+  body::before
+  {
+    display: block;
+  }
   body::after
   {
     display:     block;
