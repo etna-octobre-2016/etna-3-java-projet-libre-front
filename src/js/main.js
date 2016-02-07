@@ -9,31 +9,32 @@ import * as sections from "core/sections.js";
 var mainView;
 
 mainView = new Vue({
-  
+
   el: "body",
   data: {
-    currentSection: null
+    currentSection: null,
+    isLoading: true
   },
   ready: function() {
-    
+
     sections.init();
-    
-    Events.on("section:destroyed", () => {  
-      
+
+    Events.on("section:destroyed", () => {
+
       this.isLoading = true;
     });
-    
+
     Events.on("section:loaded", () => {
-      
+
       this.isLoading = false;
     });
-    
+
     Events.on("router:update", (route) => {
-      
-      this.currentSection = route.name;  
+
+      this.currentSection = route.name;
       Events.emit("section:load", route);
     });
-    
+
     router.init();
   }
 });
