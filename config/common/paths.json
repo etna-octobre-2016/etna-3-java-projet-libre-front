@@ -7,7 +7,7 @@
       "watch": "src/components/**/*"
     },
     "html": {
-      "default": "src/html/**/*.html",
+      "default": "src/**/*.html",
       "watch": "src/html/**/*.html"
     },
     "jade": {
