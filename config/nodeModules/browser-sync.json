@@ -5,6 +5,6 @@
       "tmp",
       "src"
     ],
-    "directory": true
+    "directory": false
   }
 }
