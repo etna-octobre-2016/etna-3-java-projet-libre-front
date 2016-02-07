@@ -4,6 +4,7 @@
   "eqeqeq": true,
   "esnext": true,
   "globals": {
+    "Polymer": false,
     "System": false
   },
   "node": true,

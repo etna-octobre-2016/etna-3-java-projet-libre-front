@@ -36,18 +36,18 @@ export default class Router
     }
 
     // Hash-based routing
-    function processHash()
+    function processHash(self)
     {
-      var hash
+      var hash;
 
       hash = window.location.hash || "#";
-      if (!this.rlite.run(hash.slice(2)))
+      if (!self.rlite.run(hash.slice(2)))
       {
-        window.location.hash = "#" + this.defaultRoute.uri;
+        window.location.hash = "#" + self.defaultRoute.uri;
       }
     }
-    window.addEventListener("hashchange", processHash.bind(this));
-    processHash.call(this);
+    window.addEventListener("hashchange", processHash.bind(null, this));
+    processHash.call(null, this);
   }
   onRouteChange(cb)
   {
