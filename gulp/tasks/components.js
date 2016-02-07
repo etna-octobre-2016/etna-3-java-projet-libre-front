@@ -1,9 +1,11 @@
 /*
  * Node Dependencies
  */
+var AutoPrefixer = require("autoprefixer");
 var Colors = require("colors/safe");
 var Gulp = require("gulp");
 var GulpInline = require("gulp-inline-source");
+var PostCSS = require("gulp-postcss");
 var RunSequence = require("run-sequence").use(Gulp);
 var Sass = require("gulp-sass");
 
@@ -65,7 +67,11 @@ Gulp.task("components-sass", function(callback) {
   return Gulp
     .src(paths.relocate(config.common.paths.sources.components.sass))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
-      .on("error", onSassError.bind(null, callback))
+    .on("error", onSassError.bind(null, callback))
+    .pipe(PostCSS([
+      AutoPrefixer(config.nodeModules.autoPrefixer)
+    ]))
+    .on("error", onSassError.bind(null, callback))
     .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.components.development)));
 });
 

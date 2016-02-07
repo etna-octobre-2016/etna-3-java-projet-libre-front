@@ -3,6 +3,7 @@ module.exports = {
     paths: require("../../config/common/paths.json")
   },
   nodeModules: {
+    autoPrefixer: require("../../config/nodeModules/auto-prefixer.json"),
     browserSync: require("../../config/nodeModules/browser-sync.json"),
     jade: require("../../config/nodeModules/jade.json"),
     jshint: require("../../config/nodeModules/jshint.json"),
