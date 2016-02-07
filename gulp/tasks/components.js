@@ -38,16 +38,16 @@ function onTaskComplete(callback)
  * Task
  */
 Gulp.task("components", function(callback) {
-  
-  RunSequence("component-sass", "components-html", function(){
-    
+
+  RunSequence("components-js", "components-sass", "components-html", function(){
+
     global.browserSync.reload();
     callback();
   });
 });
 
 Gulp.task("components-html", function(callback) {
-  
+
   var destination;
 
   destination = (argv.mode === "distributable") ? config.common.paths.builds.components[argv.mode][argv.env] : config.common.paths.builds.components[argv.mode];
@@ -60,11 +60,18 @@ Gulp.task("components-html", function(callback) {
     .pipe(Gulp.dest(paths.relocate(destination)));
 });
 
-Gulp.task("component-sass", function(callback) {
+Gulp.task("components-sass", function(callback) {
 
   return Gulp
     .src(paths.relocate(config.common.paths.sources.components.sass))
     .pipe(Sass(config.nodeModules.sass[argv.mode]))
       .on("error", onSassError.bind(null, callback))
+    .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.components.development)));
+});
+
+Gulp.task("components-js", function(callback) {
+
+  return Gulp
+    .src(paths.relocate(config.common.paths.sources.components.js))
     .pipe(Gulp.dest(paths.relocate(config.common.paths.builds.components.development)));
 });

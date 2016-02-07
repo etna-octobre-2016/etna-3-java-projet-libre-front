@@ -2,6 +2,7 @@
   "sources": {
     "components": {
       "includeBaseDir": "tmp/components",
+      "js": "src/components/**/*.js",
       "html": "src/components/**/*.html",
       "sass": "src/components/**/*.scss",
       "watch": "src/components/**/*"
