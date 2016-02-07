@@ -1,6 +1,4 @@
-import {Router5} from "router5";
-import Router5History from "router5History";
-import Router5Listeners from "router5Listeners";
+import Rlite from "rlite";
 
 class RouterException extends Error
 {
@@ -19,29 +17,37 @@ export default class Router
 
     this.callback = null;
     this.defaultRoute = "";
+    this.rlite = null;
     this.routes = routes;
   }
   init()
   {
-    this.r5 = new Router5([], {
-      trailingSlash: true,
-      useHash: true
-    });
+    this.rlite = new Rlite();
     for (let item of this.routes)
     {
-      this.r5.addNode(item.name, item.uri);
-    }
-    this.r5.setOption("defaultRoute", this.defaultRoute);
-    this.r5.usePlugin(Router5History());
-    this.r5.usePlugin(Router5Listeners());
-    this.r5.addListener((route) => {
-      this.callback({
-        name:   route.name,
-        params: route.params,
-        uri:    route.path
+      this.rlite.add(item.uri.substr(1), (r) => {
+
+        this.callback({
+          name:   item.name,
+          params: r.params,
+          uri:    item.uri
+        });
       });
-    });
-    this.r5.start();
+    }
+
+    // Hash-based routing
+    function processHash()
+    {
+      var hash
+
+      hash = window.location.hash || "#";
+      if (!this.rlite.run(hash.slice(2)))
+      {
+        window.location.hash = "#" + this.defaultRoute.uri;
+      }
+    }
+    window.addEventListener("hashchange", processHash.bind(this));
+    processHash.call(this);
   }
   onRouteChange(cb)
   {
@@ -54,7 +60,7 @@ export default class Router
     {
       if (item.name === name)
       {
-        this.defaultRoute = name;
+        this.defaultRoute = item;
         return;
       }
     }
