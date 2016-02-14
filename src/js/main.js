@@ -1,6 +1,7 @@
 /*
  * Dependencies
  */
+import "babel-polyfill";
 import Vue from "vue";
 import Events from "modules/events.js";
 import * as router from "core/router.js";
