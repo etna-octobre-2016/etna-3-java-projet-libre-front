@@ -5,7 +5,6 @@ var Colors = require("colors/safe");
 var Gulp = require("gulp");
 var JSHint = require("gulp-jshint");
 var JSHintStylish = require("jshint-stylish");
-var Named = require("vinyl-named");
 var Replace = require("gulp-replace-task");
 var RunSequence = require("run-sequence").use(Gulp);
 var Webpack = require("webpack");
@@ -48,16 +47,10 @@ Gulp.task("javascript", function(callback) {
 });
 Gulp.task("javascript-build", function(callback) {
 
-  var destination,
-      sources;
+  var destination;
 
-  sources = paths.relocate(config.common.paths.sources.js.default);
   destination = (argv.mode === "distributable") ? config.common.paths.builds.js[argv.mode][argv.env] : config.common.paths.builds.js[argv.mode];
-  return Gulp
-    .src(sources)
-    .pipe(Named())
-      .on("error", onTaskError.bind(null, callback))
-    .pipe(WebpackStream(config.nodeModules.webpack, Webpack))
+  return WebpackStream(config.nodeModules.webpack, Webpack)
       .on("error", onTaskError.bind(null, callback))
     .pipe(Replace({ patterns: replace.patterns[argv.env] }))
       .on("error", onTaskError.bind(null, callback))

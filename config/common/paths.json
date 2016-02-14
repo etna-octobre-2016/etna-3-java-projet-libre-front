@@ -16,7 +16,6 @@
       "watch": "src/html/**/*.jade"
     },
     "js": {
-      "default": "src/js/*.js",
       "watch": [
         "!src/vendors/**/*.js",
         "src/**/*.js"

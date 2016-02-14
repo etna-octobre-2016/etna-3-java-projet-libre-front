@@ -19,6 +19,14 @@ const PROJECT_DIR = Path.resolve(__dirname, "../../");
  */
 module.exports = {
     devtool: (argv.mode === "development") ? "inline-source-map" : null,
+    entry: {
+      main: Path.resolve(PROJECT_DIR, "src/js/main.js"),
+      vendors: ["eventEmitter", "rlite", "vue"]
+    },
+    output: {
+      filename: "[name].js",
+      chunkFilename: "[id].js"
+    },
     module: {
         loaders: [
             { test: /\.js$/, exclude: /(node_modules|vendors)/, loader: "babel-loader"},
@@ -43,6 +51,7 @@ module.exports = {
         }
     },
     plugins: [
+      new Webpack.optimize.CommonsChunkPlugin({name: "vendors", filename: "vendors.js"}),
       new Webpack.optimize.UglifyJsPlugin()
     ]
 };
