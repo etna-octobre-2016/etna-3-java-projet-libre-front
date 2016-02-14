@@ -2,6 +2,12 @@
  * Dependencies
  */
 var Path = require("path");
+var Webpack = require("webpack");
+
+/*
+ * Modules
+ */
+var argv = require("../../gulp/modules/argv");
 
 /*
  * Constants
@@ -12,7 +18,7 @@ const PROJECT_DIR = Path.resolve(__dirname, "../../");
  * Webpack configuration
  */
 module.exports = {
-    devtool: "inline-source-map",
+    devtool: (argv.mode === "development") ? "inline-source-map" : null,
     module: {
         loaders: [
             { test: /\.js$/, exclude: /(node_modules|vendors)/, loader: "babel-loader"},
@@ -35,5 +41,8 @@ module.exports = {
             modules: Path.resolve(PROJECT_DIR, "src/js/modules"),
             sections: Path.resolve(PROJECT_DIR, "src/sections")
         }
-    }
+    },
+    plugins: [
+      new Webpack.optimize.UglifyJsPlugin()
+    ]
 };
