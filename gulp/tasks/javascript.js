@@ -6,7 +6,6 @@ var Gulp = require("gulp");
 var JSHint = require("gulp-jshint");
 var JSHintStylish = require("jshint-stylish");
 var Named = require("vinyl-named");
-var Path = require("path");
 var Replace = require("gulp-replace-task");
 var RunSequence = require("run-sequence").use(Gulp);
 var Webpack = require("webpack");
