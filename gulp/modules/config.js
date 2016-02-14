@@ -11,7 +11,8 @@ module.exports = {
       db: require("../../config/nodeModules/json-server/db.json")
     },
     sass: require("../../config/nodeModules/sass.json"),
-    svgSprite: require("../../config/nodeModules/svg-sprite.json")
+    svgSprite: require("../../config/nodeModules/svg-sprite.json"),
+    webpack: require("../../config/nodeModules/webpack.js")
   },
   tasks: {
     api: require("../../config/tasks/api.json"),
