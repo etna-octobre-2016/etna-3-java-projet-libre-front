@@ -30,7 +30,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, exclude: /(node_modules|vendors)/, loader: "babel-loader"},
-            { test: /\.html$/, exclude: /(node_modules|vendors)/, loader: "html-loader"}
+            { test: /\.html$/, exclude: /(node_modules|vendors)/, loader: "html-loader?attrs=false"}
         ]
     },
     resolve: {
