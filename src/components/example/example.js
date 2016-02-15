@@ -20,12 +20,13 @@
       get: function() {
 
         console.log("firstname getter");
-        return this.firstname;
+        return this._firstname;
       },
       set: function(firstname) {
 
         console.log("firstname setter");
-        this.firstname = firstname;
+        this._firstname = firstname;
+        this.shadowRoot.querySelector(".firstname").textContent = firstname;
       }
 
     },
