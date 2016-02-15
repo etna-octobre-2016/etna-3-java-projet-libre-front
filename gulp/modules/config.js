@@ -5,6 +5,8 @@ module.exports = {
   nodeModules: {
     autoPrefixer: require("../../config/nodeModules/auto-prefixer.json"),
     browserSync: require("../../config/nodeModules/browser-sync.json"),
+    imageminPNGQuant: require("../../config/nodeModules/imagemin-pngquant.json"),
+    imageminJPEGRecompress: require("../../config/nodeModules/imagemin-jpeg-recompress.json"),
     jade: require("../../config/nodeModules/jade.json"),
     jshint: require("../../config/nodeModules/jshint.json"),
     jsonServer: {
