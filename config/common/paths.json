@@ -15,10 +15,12 @@
       "default": "src/html/*/*.jade",
       "watch": "src/html/**/*.jade"
     },
-    "js": [
-      "!src/vendors/**/*.js",
-      "src/**/*.js"
-    ],
+    "js": {
+      "watch": [
+        "!src/vendors/**/*.js",
+        "src/**/*.js"
+      ]
+    },
     "sass": {
         "default": "src/sass/*.scss",
         "watch": "src/sass/**/*.scss"
@@ -48,10 +50,10 @@
       }
     },
     "js": {
-      "development": "tmp",
+      "development": "tmp/js",
       "distributable": {
-        "pre-production": "dist/pre-production",
-        "production": "dist/production"
+        "pre-production": "dist/pre-production/js",
+        "production": "dist/production/js"
       }
     },
     "svg": {

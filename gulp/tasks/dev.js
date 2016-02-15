@@ -24,7 +24,7 @@ Gulp.task("dev", function(callback) {
     Watch(paths.relocate(config.common.paths.sources.jade.watch), function() {
       RunSequence("jade");
     });
-    Watch(paths.relocate(config.common.paths.sources.js), function() {
+    Watch(paths.relocate(config.common.paths.sources.js.watch), function() {
       RunSequence("javascript");
     });
     Watch(paths.relocate(config.common.paths.sources.sass.watch), function() {
