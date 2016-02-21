@@ -59,7 +59,7 @@ Gulp.task("javascript-build", function(callback) {
 Gulp.task("javascript-lint", function(callback) {
 
   return Gulp
-    .src(paths.relocate(config.common.paths.sources.js.watch))
+    .src(paths.relocate(config.common.paths.sources.js.default))
     .pipe(JSHint(config.nodeModules.jshint))
       .on("error", onTaskError.bind(null, callback))
     .pipe(JSHint.reporter(JSHintStylish))

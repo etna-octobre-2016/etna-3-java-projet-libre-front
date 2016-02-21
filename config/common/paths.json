@@ -17,14 +17,19 @@
       "watch": "src/html/**/*.jade"
     },
     "js": {
+      "default": [
+        "src/js/**/*.js",
+        "src/sections/**/*.js"
+      ],
       "watch": [
-        "!src/vendors/**/*.js",
-        "src/**/*.js"
+        "!src/sections/**/*.scss",
+        "src/js/**/*.js",
+        "src/sections/**"
       ]
     },
     "sass": {
         "default": "src/sass/*.scss",
-        "watch": "src/sass/**/*.scss"
+        "watch": "src/**/*.scss"
     },
     "svg": "src/assets/images/icons/svg/*.svg"
   },
