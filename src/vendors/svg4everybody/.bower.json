@@ -37,7 +37,6 @@
     "commit": "054809711663475bc4e986057b8ca3ff64e3c1a9"
   },
   "_source": "git://github.com/jonathantneal/svg4everybody.git",
-  "_target": "v2.0.3",
-  "_originalSource": "svg4everybody",
-  "_direct": true
+  "_target": "2.0.3",
+  "_originalSource": "svg4everybody"
 }

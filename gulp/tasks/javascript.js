@@ -1,12 +1,14 @@
 /*
  * Node Dependencies
  */
-var Babel = require("gulp-babel");
 var Colors = require("colors/safe");
 var Gulp = require("gulp");
 var JSHint = require("gulp-jshint");
 var JSHintStylish = require("jshint-stylish");
 var Replace = require("gulp-replace-task");
+var RunSequence = require("run-sequence").use(Gulp);
+var Webpack = require("webpack");
+var WebpackStream = require("webpack-stream");
 
 /*
  * Modules
@@ -19,7 +21,7 @@ var replace = require("../modules/replace");
 /*
  * Internal functions
  */
-function onBabelError(callback, err)
+function onTaskError(callback, err)
 {
   console.log(Colors.red.underline('"javascript" task failed!'));
   console.log(err.name + ": " + err.message);
@@ -37,18 +39,30 @@ function onTaskComplete(callback)
  */
 Gulp.task("javascript", function(callback) {
 
+  RunSequence("javascript-lint", "javascript-build", function() {
+
+    global.browserSync.reload();
+    onTaskComplete(callback);
+  });
+});
+Gulp.task("javascript-build", function(callback) {
+
   var destination;
 
   destination = (argv.mode === "distributable") ? config.common.paths.builds.js[argv.mode][argv.env] : config.common.paths.builds.js[argv.mode];
-  Gulp
-    .src(paths.relocate(config.common.paths.sources.js))
-    .pipe(Replace({
-      patterns: replace.patterns[argv.env]
-    }))
+  return WebpackStream(config.nodeModules.webpack, Webpack)
+      .on("error", onTaskError.bind(null, callback))
+    .pipe(Replace({ patterns: replace.patterns[argv.env] }))
+      .on("error", onTaskError.bind(null, callback))
+    .pipe(Gulp.dest(paths.relocate(destination)));
+});
+Gulp.task("javascript-lint", function(callback) {
+
+  return Gulp
+    .src(paths.relocate(config.common.paths.sources.js.watch))
     .pipe(JSHint(config.nodeModules.jshint))
+      .on("error", onTaskError.bind(null, callback))
     .pipe(JSHint.reporter(JSHintStylish))
-    .pipe(Babel())
-      .on("error", onBabelError.bind(null, callback))
-    .pipe(Gulp.dest(paths.relocate(destination)))
-      .on("end", onTaskComplete.bind(null, callback));
+    .pipe(JSHint.reporter("fail"))
+      .on("error", onTaskError.bind(null, callback));
 });

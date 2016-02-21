@@ -7,20 +7,18 @@ html(lang="fr-FR")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    script(src="vendors/webcomponentsjs/webcomponents-lite.min.js?bust=@@CACHE_BUST")
+    script(src="vendors/webcomponentsjs/webcomponents.min.js?bust=@@CACHE_BUST")
     script(src="vendors/svg4everybody/dist/svg4everybody.min.js?bust=@@CACHE_BUST")
     script svg4everybody();
     block title
       title Titre de la page
     link(rel="stylesheet", href="vendors/normalize-css/normalize.css?bust=@@CACHE_BUST")
     link(rel="stylesheet", href="css/main.css?bust=@@CACHE_BUST")
-    link(rel="import", href="vendors/polymer/polymer.html")
     block components
   body
     include ../common/includes/header.jade
     main#main
       block content
     include ../common/includes/footer.jade
-    script(src="vendors/babel-polyfill/polyfill.min.js?bust=@@CACHE_BUST")
-    script(src="vendors/system.js/dist/system.js?bust=@@CACHE_BUST")
-    script(src="js/system.js?bust=@@CACHE_BUST")
+    script(src="js/vendors.js")
+    script(src="js/main.js")

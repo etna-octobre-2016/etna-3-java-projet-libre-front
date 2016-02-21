@@ -11,14 +11,17 @@
       "default": "src/**/*.html",
       "watch": "src/html/**/*.html"
     },
+    "images": "src/**/*.{jpg,png,gif}",
     "jade": {
       "default": "src/html/*/*.jade",
       "watch": "src/html/**/*.jade"
     },
-    "js": [
-      "!src/vendors/**/*.js",
-      "src/**/*.js"
-    ],
+    "js": {
+      "watch": [
+        "!src/vendors/**/*.js",
+        "src/**/*.js"
+      ]
+    },
     "sass": {
         "default": "src/sass/*.scss",
         "watch": "src/sass/**/*.scss"
@@ -47,11 +50,18 @@
         "production": "dist/production"
       }
     },
-    "js": {
+    "images": {
       "development": "tmp",
       "distributable": {
         "pre-production": "dist/pre-production",
         "production": "dist/production"
+      }
+    },
+    "js": {
+      "development": "tmp/js",
+      "distributable": {
+        "pre-production": "dist/pre-production/js",
+        "production": "dist/production/js"
       }
     },
     "svg": {
@@ -65,6 +75,7 @@
   "static": {
     "base": "src",
     "source": [
+      "!src/**/*.{jpg,png,gif}",
       "!src/assets/images/icons{,/**}",
       "!src/vendors/{bourbon,neat}{,/**}",
       "src/assets/**",
