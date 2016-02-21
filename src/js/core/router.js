@@ -11,7 +11,7 @@ export function init()
       name: "home",
       uri: "/home"
     }
-  ]);
+  ], window.location);
   router.setDefaultRoute("home");
   router.onRouteChange(function(route) {
     Events.emit("router:update", route);

@@ -1,3 +1,5 @@
+/* globals Location: false */
+
 import Rlite from "rlite";
 
 class RouterException extends Error
@@ -11,15 +13,35 @@ class RouterException extends Error
 
 export default class Router
 {
-  constructor(routes)
+  ///////////////////////////////////////////////////////////////////////
+  // CONSTRUCTOR
+  ///////////////////////////////////////////////////////////////////////
+
+  constructor(routes, location)
   {
-    this.validateRoutes(routes);
+    this._validateLocation(location);
+    this._validateRoutes(routes);
 
     this.callback = null;
     this.defaultRoute = "";
+    this.location = location;
     this.rlite = null;
     this.routes = routes;
   }
+
+  ///////////////////////////////////////////////////////////////////////
+  // PUBLIC STATIC METHODS
+  ///////////////////////////////////////////////////////////////////////
+
+  static getQueryParams(queryString)
+  {
+    return queryString.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this;}.bind({}))[0];
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  // PUBLIC INSTANCE METHODS
+  ///////////////////////////////////////////////////////////////////////
+
   init()
   {
     this.rlite = new Rlite();
@@ -30,6 +52,7 @@ export default class Router
         this.callback({
           name:   item.name,
           params: r.params,
+          query:  Router.getQueryParams(this.location.search),
           uri:    item.uri
         });
       });
@@ -51,7 +74,7 @@ export default class Router
   }
   onRouteChange(cb)
   {
-    this.validateCallback(cb);
+    this._validateCallback(cb);
     this.callback = cb;
   }
   setDefaultRoute(name)
@@ -65,7 +88,12 @@ export default class Router
       }
     }
   }
-  validateCallback(callback)
+
+  ///////////////////////////////////////////////////////////////////////
+  // PRIVATE METHODS
+  ///////////////////////////////////////////////////////////////////////
+
+  _validateCallback(callback)
   {
     if (typeof callback === "undefined")
     {
@@ -76,7 +104,14 @@ export default class Router
       throw new RouterException('Invalid callback function');
     }
   }
-  validateRoutes(routes)
+  _validateLocation(location)
+  {
+    if (typeof location.constructor === "undefined" || location.constructor !== Location)
+    {
+      throw new RouterException("an instance of the Location class is expected");
+    }
+  }
+  _validateRoutes(routes)
   {
     if (routes === null || typeof routes === "undefined" || routes.constructor !== Array)
     {
