@@ -13,6 +13,14 @@ var argv = require("../../gulp/modules/argv");
  * Constants
  */
 const PROJECT_DIR = Path.resolve(__dirname, "../../");
+const PLUGINS = {
+  development: [
+  ],
+  distributable: [
+    new Webpack.optimize.CommonsChunkPlugin({name: "vendors", filename: "vendors.js"}),
+    new Webpack.optimize.UglifyJsPlugin()
+  ]
+};
 
 /*
  * Webpack configuration
@@ -50,8 +58,5 @@ module.exports = {
             sections: Path.resolve(PROJECT_DIR, "src/sections")
         }
     },
-    plugins: [
-      new Webpack.optimize.CommonsChunkPlugin({name: "vendors", filename: "vendors.js"}),
-      new Webpack.optimize.UglifyJsPlugin()
-    ]
+    plugins: PLUGINS[argv.mode]
 };
