@@ -2,6 +2,7 @@
  * Dependencies
  */
 import "babel-polyfill";
+import SVG4Everybody from "svg4everybody";
 import Vue from "vue";
 import Events from "modules/events.js";
 import * as router from "core/router.js";
@@ -28,6 +29,7 @@ mainView = new Vue({
     Events.on("section:loaded", () => {
 
       this.isLoading = false;
+      SVG4Everybody();
     });
 
     Events.on("router:update", (route) => {

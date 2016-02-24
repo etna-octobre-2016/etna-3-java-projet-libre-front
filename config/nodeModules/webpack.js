@@ -29,7 +29,7 @@ module.exports = {
     devtool: (argv.mode === "development") ? "inline-source-map" : null,
     entry: {
       main: Path.resolve(PROJECT_DIR, "src/js/main.js"),
-      vendors: ["eventEmitter", "rlite", "vue"]
+      vendors: ["eventEmitter", "rlite", "svg4everybody", "vue"]
     },
     output: {
       filename: "[name].js",
@@ -48,6 +48,7 @@ module.exports = {
              */
             eventEmitter: Path.resolve(PROJECT_DIR, "src/vendors/eventEmitter/EventEmitter.min.js"),
             rlite: Path.resolve(PROJECT_DIR, "src/vendors/rlite/rlite.min.js"),
+            svg4everybody: Path.resolve(PROJECT_DIR, "src/vendors/svg4everybody/dist/svg4everybody.min.js"),
             vue: Path.resolve(PROJECT_DIR, "src/vendors/vue/dist/vue.min.js"),
 
             /*
