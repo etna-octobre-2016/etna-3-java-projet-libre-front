@@ -4,7 +4,7 @@
 import "babel-polyfill";
 import SVG4Everybody from "svg4everybody";
 import Vue from "vue";
-import Events from "modules/events.js";
+import Events from "modules/core/events.js";
 import * as router from "core/router.js";
 import * as sections from "core/sections.js";
 

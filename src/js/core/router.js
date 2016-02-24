@@ -1,8 +1,8 @@
 /*
  * Dependencies
  */
-import Events from "modules/events.js";
-import Router from "modules/router.js";
+import Events from "modules/core/events.js";
+import Router from "modules/core/router.js";
 
 export function init()
 {

@@ -1,7 +1,7 @@
 /*
  * Dependencies
  */
-import Events from "modules/events.js";
+import Events from "modules/core/events.js";
 import Vue from "vue";
 import template from "./home.html";
 
