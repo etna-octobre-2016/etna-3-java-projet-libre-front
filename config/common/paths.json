@@ -8,12 +8,12 @@
       "watch": "src/components/**/*"
     },
     "html": {
-      "default": "src/**/*.html",
+      "default": "src/html/fr/*.html",
       "watch": "src/html/**/*.html"
     },
     "images": "src/**/*.{jpg,png,gif}",
     "jade": {
-      "default": "src/html/*/*.jade",
+      "default": "src/html/fr/*.jade",
       "watch": "src/html/**/*.jade"
     },
     "js": {
