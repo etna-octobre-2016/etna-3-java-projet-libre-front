@@ -1,0 +1,16 @@
+%textfield
+{
+  appearance:    none;
+  border:        1px solid $color-grey-15pc;
+  border-radius: 0;
+  color:         $primary-color-text;
+  outline:       none;
+}
+%textfield:focus
+{
+  border-color: $accent-color;
+}
+%textfield.is-invalid
+{
+  border-color: $color-red-error !important;
+}
