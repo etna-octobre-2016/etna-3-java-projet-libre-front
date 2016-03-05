@@ -10,6 +10,10 @@ export function init()
     {
       name: "home",
       uri: "/home"
+    },
+    {
+      name: "login",
+      uri: "/login"
     }
   ], window.location);
   router.setDefaultRoute("home");
