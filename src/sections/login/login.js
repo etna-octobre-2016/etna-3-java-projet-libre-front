@@ -4,6 +4,7 @@
 import Events from "modules/core/events.js";
 import Vue from "vue";
 import template from "./login.html";
+import ui from "modules/ui/index.js";
 
 var view;
 
@@ -31,14 +32,39 @@ export function init()
       
       onFormSubmit: function(e) {
         
+        var errors,
+            fieldNames,
+            fields,
+            form;
+            
         e.preventDefault();
+        form = new ui.form(this.$els.loginform);
         if (this.formValidator.fails("loginForm"))
         {
-          console.log(this.formValidator.errors.loginForm);
+          this.$els.loginform.setAttribute("data-state", "invalid");
+          errors = this.formValidator.errors.loginForm;
+          fields = form.getFields();
+          fieldNames = form.getFieldNames();
+          fieldNames.forEach(function(name) {
+            
+            if (typeof errors[name] !== "undefined")
+            {
+              fields[name].classList.add("is-invalid");
+            }
+            else
+            {
+              fields[name].classList.remove("is-invalid");
+            }
+          });
         }
         else
         {
-          console.log("form ok");
+          this.$els.loginform.removeAttribute("data-state");
+          fields = form.getFields(true, true);
+          fields.forEach(function(f) {
+            
+            f.classList.remove("is-invalid");
+          });
         }
       }
     }

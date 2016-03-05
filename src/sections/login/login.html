@@ -1,9 +1,10 @@
 <section class="s-login">
   <div class="s-login-container">
-    <form class="s-login-form" name="loginForm" v-on:submit="onFormSubmit">
+    <form class="s-login-form" name="loginForm" v-on:submit="onFormSubmit" v-el:loginform>
       <div class="s-login-logo">Pimp My Tasks</div>
-      <p class="s-login-form-error">Vos identifiants sont incorrects.</p>
-      <p class="s-login-form-error">Une erreur a eu lieu, veuillez réessayer ultérieurement.</p>
+      <p class="s-login-form-error" data-id="invalid">Veuillez vérifier les champs en rouge.</p>
+      <p class="s-login-form-error" data-id="bad-credentials">Vos identifiants sont incorrects.</p>
+      <p class="s-login-form-error" data-id="unexpected-error">Une erreur a eu lieu, veuillez réessayer ultérieurement.</p>
       <div class="s-login-form-content">
         <input class="s-login-form-field" type="text" name="email" placeholder="Email">
         <input class="s-login-form-field" type="password" name="password" placeholder="Mot de passe">
