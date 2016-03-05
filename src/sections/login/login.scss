@@ -6,15 +6,16 @@
 {
   .s-login
   {
-    background: red;
+    background: url("../assets/images/layout/paper_fibers@2X.png") top left repeat;
+    height:     100%;
+  }
+  .s-login-container
+  {
+    padding: 20px;
   }
 }
 @include mobile-landscape-and-up
 {
-  .s-login
-  {
-    background: green;
-  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -23,17 +24,9 @@
 
 @include tablet-portrait-and-up
 {
-  .s-login
-  {
-    background: blue;
-  }
 }
 @include tablet-landscape-and-up
 {
-  .s-login
-  {
-    background: orange;
-  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -44,6 +37,6 @@
 {
   .s-login
   {
-    background: pink;
+    background-image: url("../assets/images/layout/paper_fibers.png");
   }
 }

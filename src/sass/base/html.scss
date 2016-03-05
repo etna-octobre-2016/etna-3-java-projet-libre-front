@@ -9,6 +9,7 @@
     background-color: #FFFFFF;
     font-family:      Arial, Helvetica, sans-serif;
     font-size:        4vw;
+    height:           100%;
   }
   html.no-scroll
   {
@@ -22,6 +23,10 @@
   body
   {
     overflow-x: hidden;
+  }
+  main
+  {
+    height: 100%;
   }
 }
 @include mobile-landscape-and-up

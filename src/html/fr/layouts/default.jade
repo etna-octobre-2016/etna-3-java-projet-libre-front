@@ -17,9 +17,7 @@ html(lang="fr-FR")
     link(rel="stylesheet", href="css/main.css?bust=@@CACHE_BUST")
     block components
   body
-    include ../includes/common/header.jade
     main#main
       block content
-    include ../includes/common/footer.jade
     script(src="js/vendors.js")
     script(src="js/main.js")
