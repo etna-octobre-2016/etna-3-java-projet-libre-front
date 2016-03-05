@@ -1,0 +1,43 @@
+%button
+{
+  appearance:    none;
+  background:    transparent;
+  border:        1px solid $primary-color;
+  border-radius: 0;
+  transition:    all 0.3s ease;
+  
+  &:hover
+  {
+    background: $primary-color;
+    
+    %button-label
+    {
+      color: #FFFFFF;
+    }
+  }
+}
+%button-label
+{
+  color:      $primary-color;
+  transition: all 0.3s ease;
+}
+%button-primary
+{
+  @extend %button;
+  
+  background: $primary-color;
+  
+  %button-label
+  {
+    color: #FFFFFF;
+  }
+  &:hover
+  {
+    background: $primary-color-light;
+    
+    %button-label
+    {
+      color: $primary-color;
+    }
+  }
+}

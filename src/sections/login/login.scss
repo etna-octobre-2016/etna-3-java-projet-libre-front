@@ -48,6 +48,18 @@
     padding:       10px;
     width:         100%;
   }
+  .s-login-form-submit
+  {
+    @extend %button;
+    
+    padding: 10px;
+    width:   100%;
+    
+    span
+    {
+      @extend %button-label;
+    }
+  }
 }
 @include mobile-landscape-and-up
 {
@@ -77,6 +89,12 @@
     {
       margin-left: 2vw;
     }
+  }
+  .s-login-form-submit
+  {
+    flex-basis: 0;
+    flex-grow:  1;
+    margin:     0 0 2vw 2vw;
   }
 }
 
