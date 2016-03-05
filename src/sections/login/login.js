@@ -14,9 +14,33 @@ export function init()
     el: "#main",
     replace: false,
     template: template,
+    data: {
+      formValidator: null
+    },
     ready: function() {
-
+      
       Events.emit("section:loaded");
+      this.formValidator = new window.Validatinator({
+        "loginForm": {
+          "email": "required|email",
+          "password": "required"
+        }
+      });
+    },
+    methods: {
+      
+      onFormSubmit: function(e) {
+        
+        e.preventDefault();
+        if (this.formValidator.fails("loginForm"))
+        {
+          console.log(this.formValidator.errors.loginForm);
+        }
+        else
+        {
+          console.log("form ok");
+        }
+      }
     }
   });
 }
