@@ -12,7 +12,7 @@ module.exports = {
       },
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",
@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",

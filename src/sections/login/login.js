@@ -4,6 +4,7 @@
 import Events from "modules/core/events.js";
 import Vue from "vue";
 import template from "./login.html";
+import auth from "modules/api/auth.js";
 import ui from "modules/ui/index.js";
 
 var view;
@@ -65,7 +66,31 @@ export function init()
             
             f.classList.remove("is-invalid");
           });
+          auth.login(form.getData()).then(
+            this.onFormSubmitComplete.bind(this),
+            this.onFormSubmitError.bind(this)
+          );
         }
+      },
+      onFormSubmitComplete: function(details) {
+        
+        switch (details.status)
+        {
+          case "OK":
+            window.location.hash = "#/home";
+            localStorage.setItem("user", JSON.stringify(details.data));
+            break;
+          case "KO":
+            this.$els.loginform.setAttribute("data-state", "bad-credentials");
+            break;
+          default:
+            this.$els.loginform.setAttribute("data-state", "unexpected-error");
+            break;
+        }
+      },
+      onFormSubmitError: function() {
+        
+        this.$els.loginform.setAttribute("data-state", "unexpected-error");
       }
     }
   });
