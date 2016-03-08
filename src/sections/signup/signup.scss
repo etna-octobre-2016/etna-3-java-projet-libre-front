@@ -1,0 +1,164 @@
+///////////////////////////////////////////////////////////////////
+// Device: Mobile
+///////////////////////////////////////////////////////////////////
+
+@include mobile-portrait-and-up
+{
+  .s-signup
+  {
+    background: url("../assets/images/layout/paper_fibers@2X.png") top left repeat;
+    height:     100%;
+  }
+  .s-signup-container
+  {
+    display:           flex;
+      align-items:     stretch;
+      flex-direction:  column;
+      justify-content: center;
+    height:            100%;
+    padding:           3vh;
+  }
+  .s-signup-logo
+  {
+    color:         $primary-color;
+    font-family:   Pacifico, Arial, Helvetica, sans-serif;
+    font-size:     2.4rem;
+    margin-bottom: 3vh;
+    text-align:    center;
+    text-shadow:   0 0.06em 0.03em $primary-color-dark;
+    user-select:   none;
+  }
+  .s-signup-form
+  {
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
+    padding:    2vh;
+  }
+  .s-signup-form[data-state="bad-credentials"]
+  {
+    .s-signup-form-error[data-id="bad-credentials"]
+    {
+      display: block;
+    }
+  }
+  .s-signup-form[data-state="invalid"]
+  {
+    .s-signup-form-error[data-id="invalid"]
+    {
+      display: block;
+    }
+  }
+  .s-signup-form[data-state="unexpected-error"]
+  {
+    .s-signup-form-error[data-id="unexpected-error"]
+    {
+      display: block;
+    }
+  }
+  .s-signup-form-error
+  {
+    color:      $color-red-error;
+    display:    none;
+    text-align: center;
+  }
+  .s-signup-form-field
+  {
+    @extend %textfield;
+    
+    display:       block;
+    margin-bottom: 2vh;
+    padding:       10px;
+    width:         100%;
+  }
+  .s-signup-form-submit
+  {
+    @extend %button;
+    
+    padding: 10px;
+    width:   100%;
+    
+    span
+    {
+      @extend %button-label;
+    }
+  }
+}
+@include mobile-landscape-and-up
+{
+  .s-signup-container
+  {
+    padding: 3vw;
+  }
+  .s-signup-form
+  {
+    padding: 2vw;
+  }
+  .s-signup-form-content
+  {
+    display:           flex;
+      align-items:     stretch;
+      justify-content: space-between;
+    width:             100%;
+  }
+  .s-signup-form-field
+  {
+    display:       inline-block;
+    flex-basis:    0;
+    flex-grow:     1;
+    margin-bottom: 2vw;
+    
+    &:not(:first-child)
+    {
+      margin-left: 2vw;
+    }
+  }
+  .s-signup-form-submit
+  {
+    flex-basis: 0;
+    flex-grow:  1;
+    margin:     0 0 2vw 2vw;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Tablet
+///////////////////////////////////////////////////////////////////
+
+@include tablet-portrait-and-up
+{
+}
+@include tablet-landscape-and-up
+{
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Desktop
+///////////////////////////////////////////////////////////////////
+
+@include desktop
+{
+  .s-signup
+  {
+    background-image: url("../assets/images/layout/paper_fibers.png");
+  }
+  .s-signup-container
+  {
+    align-items: center;
+  }
+  .s-signup-form
+  {
+    width: 350px;
+  }
+  .s-signup-form-content
+  {
+    display: block;
+  }
+  .s-signup-form-field
+  {
+    margin-left: 0 !important;
+  }
+  .s-signup-form-submit
+  {
+    margin: 0;
+  }
+}

@@ -8,6 +8,7 @@ import Events from "modules/core/events.js";
  */
 import * as homeSection from "sections/home/home.js";
 import * as loginSection from "sections/login/login.js";
+import * as signupSection from "sections/signup/signup.js";
 
 /*
  * Exports
@@ -30,6 +31,9 @@ export function init()
         break;
       case "login":
         currentSection = loginSection;
+        break;
+      case "signup":
+        currentSection = signupSection;
         break;
       default:
         currentSection = homeSection;
