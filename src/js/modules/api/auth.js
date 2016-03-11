@@ -25,4 +25,27 @@ export default class Auth
       );
     });
   }
+  static signup(account)
+  {
+    return new Promise(function(resolve, reject){
+      
+      var body,
+          headers,
+          req;
+
+      body = JSON.stringify({
+        email: account.email,
+        password: account.password,
+        userName: account.username
+      });
+      headers = {
+        "Content-Type": "application/json"
+      };
+      req = new request("@@API_BASE_URL/createUser", "POST", body, headers);
+      req.send().then(
+        response.validate.bind(null, resolve, reject),
+        response.validate.bind(null, resolve, reject)
+      );
+    });
+  }
 }

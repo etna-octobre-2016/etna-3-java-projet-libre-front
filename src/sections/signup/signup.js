@@ -4,7 +4,7 @@
 import Events from "modules/core/events.js";
 import Vue from "vue";
 import template from "./signup.html";
-// import auth from "modules/api/auth.js";
+import auth from "modules/api/auth.js";
 import ui from "modules/ui/index.js";
 
 var view;
@@ -69,14 +69,15 @@ export function init()
             f.classList.remove("is-invalid");
           });
           console.log("requête");
-          // auth.login(form.getData()).then(
-          //   this.onFormSubmitComplete.bind(this),
-          //   this.onFormSubmitError.bind(this)
-          // );
+          auth.signup(form.getData()).then(
+            this.onFormSubmitComplete.bind(this),
+            this.onFormSubmitError.bind(this)
+          );
         }
       },
       onFormSubmitComplete: function(details) {
         
+        console.log("onFormSubmitComplete");
         console.log(details);
         // switch (details.status)
         // {
@@ -92,7 +93,10 @@ export function init()
         //     break;
         // }
       },
-      onFormSubmitError: function() {
+      onFormSubmitError: function(details) {
+        
+        console.log("onFormSubmitError");
+        console.log(details);
         
         // this.$els.loginform.setAttribute("data-state", "unexpected-error");
       }
