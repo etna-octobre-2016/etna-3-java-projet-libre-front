@@ -34,9 +34,9 @@
     box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
     padding:    2vh;
   }
-  .s-signup-form[data-state="bad-credentials"]
+  .s-signup-form[data-state="already-exists"]
   {
-    .s-signup-form-error[data-id="bad-credentials"]
+    .s-signup-form-error[data-id="already-exists"]
     {
       display: block;
     }

@@ -68,7 +68,6 @@ export function init()
             
             f.classList.remove("is-invalid");
           });
-          console.log("requête");
           auth.signup(form.getData()).then(
             this.onFormSubmitComplete.bind(this),
             this.onFormSubmitError.bind(this)
@@ -76,29 +75,24 @@ export function init()
         }
       },
       onFormSubmitComplete: function(details) {
-        
-        console.log("onFormSubmitComplete");
-        console.log(details);
-        // switch (details.status)
-        // {
-        //   case "OK":
-        //     window.location.hash = "#/home";
-        //     localStorage.setItem("user", JSON.stringify(details.data));
-        //     break;
-        //   case "KO":
-        //     this.$els.loginform.setAttribute("data-state", "bad-credentials");
-        //     break;
-        //   default:
-        //     this.$els.loginform.setAttribute("data-state", "unexpected-error");
-        //     break;
-        // }
+
+        switch (details.status)
+        {
+          case "OK":
+            window.location.hash = "#/home";
+            localStorage.setItem("user", JSON.stringify(details.data));
+            break;
+          case "KO":
+            this.$els.signupform.setAttribute("data-state", "already-exists");
+            break;
+          default:
+            this.$els.signupform.setAttribute("data-state", "unexpected-error");
+            break;
+        }
       },
-      onFormSubmitError: function(details) {
-        
-        console.log("onFormSubmitError");
-        console.log(details);
-        
-        // this.$els.loginform.setAttribute("data-state", "unexpected-error");
+      onFormSubmitError: function() {
+
+        this.$els.signupform.setAttribute("data-state", "unexpected-error");
       }
     }
   });
