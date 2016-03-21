@@ -1,16 +1,19 @@
 %button
 {
-  appearance:    none;
-  background:    transparent;
-  border:        1px solid $primary-color;
-  border-radius: 0;
-  outline:       none;
-  transition:    all 0.3s ease;
-  
+  appearance:      none;
+  background:      transparent;
+  border:          1px solid $primary-color;
+  border-radius:   0;
+  display:         inline-block;
+  outline:         none;
+  text-align:      center;
+  text-decoration: none;
+  transition:      all 0.3s ease;
+
   &:hover
   {
     background: $primary-color;
-    
+
     %button-label
     {
       color: #FFFFFF;
@@ -29,17 +32,17 @@
 %button-primary
 {
   @extend %button;
-  
+
   background: $primary-color;
-  
+
   %button-label
   {
     color: #FFFFFF;
   }
   &:hover
   {
-    background: $primary-color-light;
-    
+    background: #FFFFFF;
+
     %button-label
     {
       color: $primary-color;
