@@ -11,11 +11,13 @@
 @import "base/html";
 
 // UI Elements
-@import "ui/app";
 @import "ui/button";
 @import "ui/textfield";
 
+// Pages
+@import "pages/index";
+@import "pages/login";
+@import "pages/signup";
+
 // Sections
 @import "../sections/home/home";
-@import "../sections/login/login";
-@import "../sections/signup/signup";

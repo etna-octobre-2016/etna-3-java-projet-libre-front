@@ -12,10 +12,6 @@ export function init()
       uri: "/home"
     },
     {
-      name: "login",
-      uri: "/login"
-    },
-    {
       name: "signup",
       uri: "/signup"
     }

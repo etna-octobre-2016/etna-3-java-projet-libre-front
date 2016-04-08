@@ -4,12 +4,12 @@
 
 @include mobile-portrait-and-up
 {
-  .s-login
+  .signup
   {
     background: url("../assets/images/layout/paper_fibers@2X.png") top left repeat;
     height:     100%;
   }
-  .s-login-container
+  .signup-container
   {
     display:           flex;
       align-items:     stretch;
@@ -18,7 +18,7 @@
     height:            100%;
     padding:           3vh;
   }
-  .s-login-logo
+  .signup-logo
   {
     color:         $primary-color;
     font-family:   Pacifico, Arial, Helvetica, sans-serif;
@@ -28,40 +28,40 @@
     text-shadow:   0 0.06em 0.03em $primary-color-dark;
     user-select:   none;
   }
-  .s-login-form
+  .signup-form
   {
     background: #FFFFFF;
     box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
     padding:    2vh;
   }
-  .s-login-form[data-state="bad-credentials"]
+  .signup-form[data-state="already-exists"]
   {
-    .s-login-form-error[data-id="bad-credentials"]
+    .signup-form-error[data-id="already-exists"]
     {
       display: block;
     }
   }
-  .s-login-form[data-state="invalid"]
+  .signup-form[data-state="invalid"]
   {
-    .s-login-form-error[data-id="invalid"]
+    .signup-form-error[data-id="invalid"]
     {
       display: block;
     }
   }
-  .s-login-form[data-state="unexpected-error"]
+  .signup-form[data-state="unexpected-error"]
   {
-    .s-login-form-error[data-id="unexpected-error"]
+    .signup-form-error[data-id="unexpected-error"]
     {
       display: block;
     }
   }
-  .s-login-form-error
+  .signup-form-error
   {
     color:      $color-red-error;
     display:    none;
     text-align: center;
   }
-  .s-login-form-field
+  .signup-form-field
   {
     @extend %textfield;
 
@@ -70,14 +70,7 @@
     padding:       10px;
     width:         100%;
   }
-  .s-login-form-submit
-  {
-    @extend %button-primary;
-
-    margin-bottom: 10px;
-    width:         100%;
-  }
-  .s-login-form-button
+  .signup-form-submit
   {
     @extend %button-standard;
 
@@ -86,22 +79,22 @@
 }
 @include mobile-landscape-and-up
 {
-  .s-login-container
+  .signup-container
   {
     padding: 3vw;
   }
-  .s-login-form
+  .signup-form
   {
     padding: 2vw;
   }
-  .s-login-form-content
+  .signup-form-content
   {
     display:           flex;
       align-items:     stretch;
       justify-content: space-between;
     width:             100%;
   }
-  .s-login-form-field
+  .signup-form-field
   {
     display:       inline-block;
     flex-basis:    0;
@@ -113,13 +106,7 @@
       margin-left: 2vw;
     }
   }
-  .s-login-form-submit
-  {
-    flex-basis: 0;
-    flex-grow:  1;
-    margin:     0 0 2vw 2vw;
-  }
-  .s-login-form-button
+  .signup-form-submit
   {
     flex-basis: 0;
     flex-grow:  1;
@@ -144,31 +131,27 @@
 
 @include desktop
 {
-  .s-login
+  .signup
   {
     background-image: url("../assets/images/layout/paper_fibers.png");
   }
-  .s-login-container
+  .signup-container
   {
     align-items: center;
   }
-  .s-login-form
+  .signup-form
   {
     width: 350px;
   }
-  .s-login-form-content
+  .signup-form-content
   {
     display: block;
   }
-  .s-login-form-field
+  .signup-form-field
   {
     margin-left: 0 !important;
   }
-  .s-login-form-submit
-  {
-    margin: 0 0 20px;
-  }
-  .s-login-form-button
+  .signup-form-submit
   {
     margin: 0;
   }

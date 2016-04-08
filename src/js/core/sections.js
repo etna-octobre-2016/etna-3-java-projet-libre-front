@@ -7,8 +7,6 @@ import Events from "modules/core/events.js";
  * Sections
  */
 import * as homeSection from "sections/home/home.js";
-import * as loginSection from "sections/login/login.js";
-import * as signupSection from "sections/signup/signup.js";
 
 /*
  * Exports
@@ -16,10 +14,10 @@ import * as signupSection from "sections/signup/signup.js";
 export function init()
 {
   var currentSection;
-  
+
   currentSection = null;
   Events.on("section:load", function(route) {
-    
+
     if (currentSection !== null)
     {
       currentSection.destroy();
@@ -28,12 +26,6 @@ export function init()
     {
       case "home":
         currentSection = homeSection;
-        break;
-      case "login":
-        currentSection = loginSection;
-        break;
-      case "signup":
-        currentSection = signupSection;
         break;
       default:
         currentSection = homeSection;

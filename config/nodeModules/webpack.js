@@ -29,6 +29,8 @@ module.exports = {
     devtool: (argv.mode === "development") ? "inline-source-map" : null,
     entry: {
       main: Path.resolve(PROJECT_DIR, "src/js/main.js"),
+      login: Path.resolve(PROJECT_DIR, "src/js/login.js"),
+      signup: Path.resolve(PROJECT_DIR, "src/js/signup.js"),
       vendors: ["eventEmitter", "rlite", "svg4everybody", "vue"]
     },
     output: {
