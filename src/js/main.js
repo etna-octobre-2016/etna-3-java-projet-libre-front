@@ -12,7 +12,7 @@ var mainView;
 
 mainView = new Vue({
 
-  el: "body",
+  el: "#main",
   data: {
     currentSection: null,
     isLoading: true
