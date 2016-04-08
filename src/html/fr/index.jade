@@ -4,12 +4,23 @@ block title
   title [@@ENV] Accueil
 
 block components
+  +component("app-nav/app-nav")
   +component("example/example")
 
 block content
   section.app
     header.app-header app-header
     section.app-wrapper
-      nav.app-wrapper-nav app-nav
+      nav.app-wrapper-nav
+        app-nav
+          span(data-slot="static-items") static item 1
+          span(data-slot="static-items") static item 2
+          span(data-slot="static-items") static item 3
+          span(data-slot="dynamic-items") dynamic item 1
+          span(data-slot="dynamic-items") dynamic item 2
+          span(data-slot="dynamic-items") dynamic item 3
+          span(data-slot="static-items") static item 4
+          span(data-slot="static-items") static item 5
+          span(data-slot="static-items") static item 6
       section.app-wrapper-content
         main.app-wrapper-content-main#main

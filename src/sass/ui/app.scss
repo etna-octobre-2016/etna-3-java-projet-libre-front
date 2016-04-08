@@ -24,7 +24,9 @@
   }
   .app-wrapper-nav
   {
-    overflow-y: auto;
+    display:       flex;
+      align-items: stretch;
+    overflow-y:    auto;
   }
   .app-wrapper-content
   {

@@ -1,0 +1,17 @@
+<template>
+  <link rel="stylesheet" href="app-nav/app-nav.css" inline>
+  <nav class="component-app-nav">
+    <div class="component-app-nav-content">
+      <div class="component-app-nav-items">
+        <content select="[data-slot='static-items']"></content>
+        <content select="[data-slot='dynamic-items']"></content>
+      </div>
+      <button class="component-app-nav-add" type="button">
+        <span class="component-app-nav-add-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+        </span>
+      </button>
+    </div>
+  </nav>
+</template>
+<script src="app-nav/app-nav.js" inline></script>
