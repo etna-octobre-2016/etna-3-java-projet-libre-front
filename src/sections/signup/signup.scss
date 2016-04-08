@@ -64,7 +64,7 @@
   .s-signup-form-field
   {
     @extend %textfield;
-    
+
     display:       block;
     margin-bottom: 2vh;
     padding:       10px;
@@ -72,15 +72,9 @@
   }
   .s-signup-form-submit
   {
-    @extend %button;
-    
-    padding: 10px;
-    width:   100%;
-    
-    span
-    {
-      @extend %button-label;
-    }
+    @extend %button-standard;
+
+    width: 100%;
   }
 }
 @include mobile-landscape-and-up
@@ -106,7 +100,7 @@
     flex-basis:    0;
     flex-grow:     1;
     margin-bottom: 2vw;
-    
+
     &:not(:first-child)
     {
       margin-left: 2vw;

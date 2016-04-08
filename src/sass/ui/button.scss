@@ -2,50 +2,39 @@
 {
   appearance:      none;
   background:      transparent;
-  border:          1px solid $primary-color;
   border-radius:   0;
+  cursor:          pointer;
   display:         inline-block;
-  outline:         none;
+  padding:         10px;
   text-align:      center;
   text-decoration: none;
   transition:      all 0.3s ease;
+}
+%button-standard
+{
+  @extend %button;
+
+  border:     1px solid $primary-color;
+  color:      $primary-color;
+  transition: all 0.3s ease;
 
   &:hover
   {
     background: $primary-color;
-
-    %button-label
-    {
-      color: #FFFFFF;
-    }
+    color:      #FFFFFF;
   }
-  &:focus
-  {
-    border-color: $accent-color;
-  }
-}
-%button-label
-{
-  color:      $primary-color;
-  transition: all 0.3s ease;
 }
 %button-primary
 {
   @extend %button;
 
   background: $primary-color;
+  border:     1px solid $primary-color;
+  color:      #FFFFFF;
 
-  %button-label
-  {
-    color: #FFFFFF;
-  }
   &:hover
   {
     background: #FFFFFF;
-
-    %button-label
-    {
-      color: $primary-color;
-    }
+    color:      $primary-color;
   }
 }

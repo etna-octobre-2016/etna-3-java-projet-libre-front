@@ -75,25 +75,13 @@
     @extend %button-primary;
 
     margin-bottom: 10px;
-    padding:       10px;
     width:         100%;
-
-    span
-    {
-      @extend %button-label;
-    }
   }
   .s-login-form-button
   {
-    @extend %button;
+    @extend %button-standard;
 
-    padding: 10px;
-    width:   100%;
-
-    span
-    {
-      @extend %button-label;
-    }
+    width: 100%;
   }
 }
 @include mobile-landscape-and-up
