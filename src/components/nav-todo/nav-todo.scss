@@ -1,14 +1,48 @@
 .navtodo
 {
   appearance: none;
-  background: transparent;
+  background: rgba(#000, 0.2);
   border:     none;
   display:    block;
   padding:    20px;
+  position:   relative;
+  text-align: left;
+  transition: all 0.3s ease;
   width:      100%;
 
   &:not(:last-child)
   {
     border-bottom: 1px solid rgba(#000, 0.2);
   }
+}
+.navtodo:hover, .navtodo:focus
+{
+  background: $primary-color-light;
+
+  .navtodo-delete
+  {
+    opacity:    1;
+    visibility: visible;
+  }
+}
+.navtodo-label
+{
+  color: #FFFFFF;
+}
+.navtodo-delete
+{
+  color:      #FFFFFF;
+  cursor:     pointer;
+  font-size:  20px;
+  opacity:    0;
+  position:   absolute;
+    right:    20px;
+    top:      50%;
+  transform:  translateY(-50%);
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.navtodo-delete:hover
+{
+  transform: translateY(-50%) rotate(90deg);
 }
