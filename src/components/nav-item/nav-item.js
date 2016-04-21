@@ -1,4 +1,4 @@
-import template from "./nav-todo.html";
+import template from "./nav-item.html";
 
 export default {
 
@@ -8,10 +8,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  ready: function() {
-
-    console.log("nav-todo component ready");
   },
   methods: {
 

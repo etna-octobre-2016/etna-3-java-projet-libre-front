@@ -2,7 +2,7 @@
   <div class="nav-container">
     <div class="nav-content">
       <div class="nav-items">
-        <component-nav-todo :label="todo.label" v-for="todo in todos"></component-nav-todo>
+        <component-nav-item :label="todo.label" v-for="todo in todos"></component-nav-todo>
       </div>
       <div class="nav-add">
         <button class="nav-add-button" type="button" v-on:click="onAddBtnClick" v-show="!isAddingTodo">

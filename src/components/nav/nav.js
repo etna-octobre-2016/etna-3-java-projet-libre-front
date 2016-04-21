@@ -1,12 +1,12 @@
 import Vue from "vue";
 import template from "./nav.html";
-import navTodo from "components/nav-todo/nav-todo.js";
+import navItem from "components/nav-item/nav-item.js";
 
 export default {
 
   template: template,
   components: {
-    "component-nav-todo": navTodo
+    "component-nav-item": navItem
   },
   data: function() {
 

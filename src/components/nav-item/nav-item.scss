@@ -1,4 +1,4 @@
-.navtodo
+.navitem
 {
   appearance: none;
   background: rgba(#000, 0.2);
@@ -15,21 +15,21 @@
     border-bottom: 1px solid rgba(#000, 0.2);
   }
 }
-.navtodo:hover, .navtodo:focus
+.navitem:hover, .navitem:focus
 {
   background: $primary-color-light;
 
-  .navtodo-delete
+  .navitem-delete
   {
     opacity:    1;
     visibility: visible;
   }
 }
-.navtodo-label
+.navitem-label
 {
   color: #FFFFFF;
 }
-.navtodo-delete
+.navitem-delete
 {
   color:      #FFFFFF;
   cursor:     pointer;
@@ -42,7 +42,7 @@
   transition: all 0.3s ease;
   visibility: hidden;
 }
-.navtodo-delete:hover
+.navitem-delete:hover
 {
   transform: translateY(-50%) rotate(90deg);
 }
