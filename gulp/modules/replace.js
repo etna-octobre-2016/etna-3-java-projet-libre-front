@@ -5,14 +5,16 @@ module.exports = {
 
   patterns: {
 
-    "development": [
+    "common": [
       {
         match: "CACHE_BUST",
         replacement: Date.now()
-      },
+      }
+    ],
+    "development": [      
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:8080"
+        replacement: "http://localhost:3080"
       },
       {
         match: "ENV",
@@ -21,26 +23,18 @@ module.exports = {
     ],
     "pre-production": [
       {
-        match: "CACHE_BUST",
-        replacement: Date.now()
-      },
-      {
         match: "API_BASE_URL",
-        replacement: "http://localhost:8080"
+        replacement: "http://localhost:3080"
       },
       {
         match: "ENV",
-        replacement: "PRE-PROD"
+        replacement: "PRE-PRODUCTION"
       }
     ],
     "production": [
       {
-        match: "CACHE_BUST",
-        replacement: Date.now()
-      },
-      {
         match: "API_BASE_URL",
-        replacement: "http://localhost:8080"
+        replacement: "http://localhost:3080"
       },
       {
         match: "ENV",

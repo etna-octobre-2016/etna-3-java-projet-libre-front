@@ -14,10 +14,10 @@ import * as homeSection from "sections/home/home.js";
 export function init()
 {
   var currentSection;
-
+  
   currentSection = null;
   Events.on("section:load", function(route) {
-
+    
     if (currentSection !== null)
     {
       currentSection.destroy();

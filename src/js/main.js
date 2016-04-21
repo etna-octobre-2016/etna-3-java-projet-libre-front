@@ -2,42 +2,46 @@
  * Dependencies
  */
 import "babel-polyfill";
+import Events from "modules/core/events.js";
 import SVG4Everybody from "svg4everybody";
 import Vue from "vue";
-import Events from "modules/core/events.js";
 import * as router from "core/router.js";
 import * as sections from "core/sections.js";
 
-var mainView;
+document.addEventListener("DOMContentLoaded", function() {
 
-mainView = new Vue({
+  var mainView;
 
-  el: "#main",
-  data: {
-    currentSection: null,
-    isLoading: true
-  },
-  ready: function() {
+  SVG4Everybody();
+  mainView = new Vue({
 
-    sections.init();
+    el: "body",
+    data: {
+      currentSection: null,
+      isLoading: true
+    },
+    ready: function() {
 
-    Events.on("section:destroyed", () => {
+      sections.init();
 
-      this.isLoading = true;
-    });
+      Events.on("section:destroyed", () => {
 
-    Events.on("section:loaded", () => {
+        this.isLoading = true;
+      });
 
-      this.isLoading = false;
-      SVG4Everybody();
-    });
+      Events.on("section:loaded", () => {
 
-    Events.on("router:update", (route) => {
+        this.isLoading = false;
+        SVG4Everybody();
+      });
 
-      this.currentSection = route.name;
-      Events.emit("section:load", route);
-    });
+      Events.on("router:update", (route) => {
 
-    router.init();
-  }
+        this.currentSection = route.name;
+        Events.emit("section:load", route);
+      });
+
+      router.init();
+    }
+  });
 });
