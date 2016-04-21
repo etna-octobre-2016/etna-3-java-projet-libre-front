@@ -4,6 +4,10 @@ export default {
 
   template: template,
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     label: {
       type: String,
       required: true

@@ -88,6 +88,7 @@ export default {
     onTaskCategoriesRemoveSuccess: function(category) {
 
       this.categories = _reject(this.categories, category);
+      window.location.hash = "#/home";
     }
   }
 };

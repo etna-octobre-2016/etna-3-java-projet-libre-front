@@ -1,14 +1,15 @@
 .navitem
 {
-  appearance: none;
-  background: rgba(#000, 0.2);
-  border:     none;
-  display:    block;
-  padding:    20px;
-  position:   relative;
-  text-align: left;
-  transition: all 0.3s ease;
-  width:      100%;
+  appearance:      none;
+  background:      rgba(#000, 0.2);
+  border:          none;
+  display:         block;
+  padding:         20px;
+  position:        relative;
+  text-align:      left;
+  text-decoration: none;
+  transition:      all 0.3s ease;
+  width:           100%;
 
   &:not(:last-child)
   {

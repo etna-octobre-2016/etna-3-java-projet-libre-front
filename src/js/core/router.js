@@ -10,6 +10,10 @@ export function init()
     {
       name: "home",
       uri: "/home"
+    },
+    {
+      name: "category",
+      uri: "/category/:categoryID"
     }
   ], window.location);
   router.setDefaultRoute("home");

@@ -2,7 +2,7 @@
   <div class="nav-container">
     <div class="nav-content">
       <div class="nav-items">
-        <component-nav-item :label="item.name" v-for="item in categories" v-on:delete="onNavItemDelete(item)"></component-nav-item>
+        <component-nav-item :label="item.name" :id="item.idcategory" v-for="item in categories" v-on:delete="onNavItemDelete(item)"></component-nav-item>
       </div>
       <div class="nav-add">
         <button class="nav-add-button" type="button" v-on:click="onAddBtnClick" v-show="!isAddingCategory">
