@@ -3,20 +3,21 @@
  */
 import Events from "modules/core/events.js";
 import Vue from "vue";
+import TaskCategories from "modules/api/task-categories.js";
 import TaskLists from "modules/api/task-lists.js";
 import template from "./category.html";
 import todoList from "components/todo-list/todo-list.js";
 
 var view;
 
-export function init()
+export function init(route)
 {
   view = new Vue({
     el: "#main",
     replace: false,
     template: template,
     data: {
-      category: null,
+      category:  null,
       taskLists: []
     },
     components: {
@@ -24,18 +25,10 @@ export function init()
     },
     created: function() {
 
-      this.category = this.getSelectedCategory();
-      if (this.category === null)
-      {
-        window.location.hash = "#/home";
-      }
-      else
-      {
-        TaskLists.fetchByCategory({ idcategory: this.category.id }).then(
-          this.onTaskListsFetchSuccess.bind(this),
-          this.onTaskListsFetchError.bind(this)
-        );
-      }
+      TaskCategories.fetch({ idcategory: route.params.categoryID }).then(
+        this.onTaskCategoryFetchSuccess.bind(this),
+        this.onTaskCategoryFetchError.bind(this)
+      );
     },
     ready: function() {
 
@@ -45,18 +38,7 @@ export function init()
 
       addTaskList: function(list) {
 
-        alert(list.name);
-      },
-      getSelectedCategory: function() {
-
-        var selectedCategory;
-
-        selectedCategory = window.localStorage.getItem("selectedCategory");
-        if (selectedCategory !== null)
-        {
-          return JSON.parse(selectedCategory);
-        }
-        return null;
+        this.taskLists.push(list);
       },
       onAddTaskList: function(e) {
 
@@ -66,6 +48,22 @@ export function init()
         if (taskListName.length > 0)
         {
           this.addTaskList({ name: taskListName });
+        }
+      },
+      onTaskCategoryFetchError: function(e) {
+
+        console.error("Une erreur a eu lieu lors des informations de la catégorie de tâche choisie. Voir exception ci-dessous :");
+        console.log(e);
+      },
+      onTaskCategoryFetchSuccess: function(response) {
+
+        if (response.count === 1)
+        {
+          this.category = response.data[0];
+          TaskLists.fetchByCategory({ idcategory: this.category.id }).then(
+            this.onTaskListsFetchSuccess.bind(this),
+            this.onTaskListsFetchError.bind(this)
+          );
         }
       },
       onTaskListsFetchError: function(e) {

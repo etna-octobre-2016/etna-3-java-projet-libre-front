@@ -16,6 +16,7 @@ export default class Response
           data: data,
           message: response.message,
           status: response.status,
+          count: (Array.isArray(data)) ? data.length : null,
           xhr: xhr
         });
       }

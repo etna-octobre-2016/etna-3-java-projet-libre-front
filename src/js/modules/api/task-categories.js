@@ -3,6 +3,23 @@ import response from "modules/api/response.js";
 
 export default class TaskCategories
 {
+  static fetch(category)
+  {
+    return new Promise(function(resolve, reject){
+
+      var headers,
+          req;
+
+      headers = {
+        "Content-Type": "application/json"
+      };
+      req = new request(`@@API_BASE_URL/categories/${category.idcategory}`, "GET", null, headers);
+      req.send().then(
+        response.validate.bind(null, resolve, reject),
+        response.validate.bind(null, resolve, reject)
+      );
+    });
+  }
   static fetchAll()
   {
     return new Promise(function(resolve, reject){
