@@ -2,5 +2,5 @@
   <header class="s-category-header" v-if="category">
     <input class="s-category-header-input" type="text" placeholder="Ajouter une liste de tâche à {{category.name}}" v-on:keyup.enter="onAddTaskList">
   </header>
-  <component-todo-list :data="list" v-for="list in taskLists"></component-todo-list>
+  <component-todo-list :data="list" v-for="list in taskLists | orderBy 'idlist' -1"></component-todo-list>
 </section>

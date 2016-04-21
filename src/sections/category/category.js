@@ -38,7 +38,11 @@ export function init(route)
 
       addTaskList: function(list) {
 
-        this.taskLists.push(list);
+        list.category_idcategory = this.category.idcategory;
+        TaskLists.create(list).then(
+          this.onTaskListCreateSuccess.bind(this),
+          this.onTaskListCreateError.bind(this)
+        );
       },
       onAddTaskList: function(e) {
 
@@ -48,6 +52,7 @@ export function init(route)
         if (taskListName.length > 0)
         {
           this.addTaskList({ name: taskListName });
+          e.target.value = "";
         }
       },
       onTaskCategoryFetchError: function(e) {
@@ -64,6 +69,18 @@ export function init(route)
             this.onTaskListsFetchSuccess.bind(this),
             this.onTaskListsFetchError.bind(this)
           );
+        }
+      },
+      onTaskListCreateError: function(e) {
+
+        console.error("Une erreur a eu lieu lors de la création d'une liste de tâches. Voir exception ci-dessous :");
+        console.log(e);
+      },
+      onTaskListCreateSuccess: function(response) {
+
+        if (response.count === 1)
+        {
+          this.taskLists.push(response.data[0]);
         }
       },
       onTaskListsFetchError: function(e) {

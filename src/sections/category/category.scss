@@ -3,6 +3,11 @@
   background: #FFFFFF;
   box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
   padding:    30px;
+
+  .todolist:not(:last-child)
+  {
+    margin-bottom: 20px;
+  }
 }
 .s-category-header
 {
