@@ -16,7 +16,8 @@ block content
           input.signup-form-field(type='email', name='email', placeholder='Email')
           input.signup-form-field(type='password', name='password', placeholder='Mot de passe')
           input.signup-form-field(type='password', name='passwordConfirm', placeholder='Confirmez votre mot de passe')
-          button.signup-form-submit(type='submit') S'inscrire
+          button.signup-form-button.signup-form-button--submit(type='submit') S'inscrire
+          a.signup-form-button.signup-form-button--link(href='login.html') Aller à la page de connexion
 
 block scripts
   script(src="js/signup.js")

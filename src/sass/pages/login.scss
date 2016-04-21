@@ -1,175 +1,89 @@
-///////////////////////////////////////////////////////////////////
-// Device: Mobile
-///////////////////////////////////////////////////////////////////
-
-@include mobile-portrait-and-up
+.login
 {
-  .login
-  {
-    background: url("../assets/images/layout/paper_fibers@2X.png") top left repeat;
-    height:     100%;
-  }
-  .login-container
-  {
-    display:           flex;
-      align-items:     stretch;
-      flex-direction:  column;
-      justify-content: center;
-    height:            100%;
-    padding:           3vh;
-  }
-  .login-logo
-  {
-    color:         $primary-color;
-    font-family:   Pacifico, Arial, Helvetica, sans-serif;
-    font-size:     2.4rem;
-    margin-bottom: 3vh;
-    text-align:    center;
-    text-shadow:   0 0.06em 0.03em $primary-color-dark;
-    user-select:   none;
-  }
-  .login-form
-  {
-    background: #FFFFFF;
-    box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
-    padding:    2vh;
-  }
-  .login-form[data-state="bad-credentials"]
-  {
-    .login-form-error[data-id="bad-credentials"]
-    {
-      display: block;
-    }
-  }
-  .login-form[data-state="invalid"]
-  {
-    .login-form-error[data-id="invalid"]
-    {
-      display: block;
-    }
-  }
-  .login-form[data-state="unexpected-error"]
-  {
-    .login-form-error[data-id="unexpected-error"]
-    {
-      display: block;
-    }
-  }
-  .login-form-error
-  {
-    color:      $color-error;
-    display:    none;
-    text-align: center;
-  }
-  .login-form-field
-  {
-    @extend %textfield;
-
-    display:       block;
-    margin-bottom: 2vh;
-    padding:       10px;
-    width:         100%;
-  }
-  .login-form-submit
-  {
-    @extend %button-primary;
-
-    margin-bottom: 10px;
-    width:         100%;
-  }
-  .login-form-button
-  {
-    @extend %button-standard;
-
-    width: 100%;
-  }
+  background: url("../assets/images/layout/paper_fibers@2X.png") top left repeat;
+  height:     100%;
 }
-@include mobile-landscape-and-up
+.login-container
 {
-  .login-container
-  {
-    padding: 3vw;
-  }
-  .login-form
-  {
-    padding: 2vw;
-  }
-  .login-form-content
-  {
-    display:           flex;
-      align-items:     stretch;
-      justify-content: space-between;
-    width:             100%;
-  }
-  .login-form-field
-  {
-    display:       inline-block;
-    flex-basis:    0;
-    flex-grow:     1;
-    margin-bottom: 2vw;
-
-    &:not(:first-child)
-    {
-      margin-left: 2vw;
-    }
-  }
-  .login-form-submit
-  {
-    flex-basis: 0;
-    flex-grow:  1;
-    margin:     0 0 2vw 2vw;
-  }
-  .login-form-button
-  {
-    flex-basis: 0;
-    flex-grow:  1;
-    margin:     0 0 2vw 2vw;
-  }
+  display:           flex;
+    align-items:     center;
+    flex-direction:  column;
+    justify-content: center;
+  height:            100%;
+  padding:           20px;
 }
-
-///////////////////////////////////////////////////////////////////
-// Device: Tablet
-///////////////////////////////////////////////////////////////////
-
-@include tablet-portrait-and-up
+.login-logo
 {
+  color:         $primary-color;
+  font-family:   Pacifico, Arial, Helvetica, sans-serif;
+  font-size:     2.4rem;
+  margin-bottom: 40px;
+  text-align:    center;
+  text-shadow:   0 0.06em 0.03em $primary-color-dark;
+  user-select:   none;
 }
-@include tablet-landscape-and-up
+.login-form
 {
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(#000000, 0.2);
+  padding:    20px;
+  width:      350px;
 }
-
-///////////////////////////////////////////////////////////////////
-// Device: Desktop
-///////////////////////////////////////////////////////////////////
-
-@include desktop
+.login-form-content
 {
-  .login
-  {
-    background-image: url("../assets/images/layout/paper_fibers.png");
-  }
-  .login-container
-  {
-    align-items: center;
-  }
-  .login-form
-  {
-    width: 350px;
-  }
-  .login-form-content
+  display: block;
+}
+.login-form[data-state="bad-credentials"]
+{
+  .login-form-error[data-id="bad-credentials"]
   {
     display: block;
   }
-  .login-form-field
+}
+.login-form[data-state="invalid"]
+{
+  .login-form-error[data-id="invalid"]
   {
-    margin-left: 0 !important;
+    display: block;
   }
-  .login-form-submit
+}
+.login-form[data-state="unexpected-error"]
+{
+  .login-form-error[data-id="unexpected-error"]
   {
-    margin: 0 0 20px;
+    display: block;
   }
-  .login-form-button
+}
+.login-form-error
+{
+  color:      $color-error;
+  display:    none;
+  text-align: center;
+}
+.login-form-field
+{
+  @extend %textfield;
+
+  display:       block;
+  margin-bottom: 20px;
+  margin-left: 0 !important;
+  padding:       10px;
+  width:         100%;
+}
+.login-form-button
+{
+  width: 100%;
+
+  &:not(:last-child)
   {
-    margin: 0;
+    margin-bottom: 20px;
   }
+}
+.login-form-button--link
+{
+  @extend %button-standard;
+}
+.login-form-button--submit
+{
+  @extend %button-primary;
 }
