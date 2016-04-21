@@ -3,14 +3,17 @@ export default class Response
   static validate(resolve, reject, xhr)
   {
     var response;
-    
-    try 
+
+    try
     {
       response = JSON.parse(xhr.responseText);
       if (typeof response.status === "string")
       {
+        var data = (typeof response.data === "string") ? JSON.parse(response.data) : response.data; // TODO: remove this monkey patch when the back end is fixed
+
         resolve({
-          data: response.data,
+          // data: response.data,
+          data: data,
           message: response.message,
           status: response.status,
           xhr: xhr
