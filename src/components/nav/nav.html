@@ -2,12 +2,14 @@
   <div class="nav-container">
     <div class="nav-content">
       <div class="nav-items">
-        <content select="[data-slot='static-items']"></content>
-        <content select="[data-slot='dynamic-items']"></content>
+        <component-nav-todo :label="todo.label" v-for="todo in todos"></component-nav-todo>
       </div>
-      <button class="nav-add" type="button">
-        Ajouter une liste de tâches
-      </button>
+      <div class="nav-add">
+        <button class="nav-add-button" type="button" v-on:click="onAddBtnClick" v-show="!isAddingTodo">
+          Ajouter une liste de tâches
+        </button>
+        <input class="nav-add-input" placeholder="Nom de la liste" type="text" v-on:blur="onAddComplete" v-on:keyup.enter="onAddComplete" v-show="isAddingTodo" v-el:input>
+      </div>
     </div>
   </div>
 </nav>
