@@ -43,6 +43,10 @@ export function init()
     },
     methods: {
 
+      addTaskList: function(list) {
+
+        alert(list.name);
+      },
       getSelectedCategory: function() {
 
         var selectedCategory;
@@ -53,6 +57,16 @@ export function init()
           return JSON.parse(selectedCategory);
         }
         return null;
+      },
+      onAddTaskList: function(e) {
+
+        var taskListName;
+
+        taskListName = e.target.value;
+        if (taskListName.length > 0)
+        {
+          this.addTaskList({ name: taskListName });
+        }
       },
       onTaskListsFetchError: function(e) {
 
