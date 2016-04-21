@@ -71,8 +71,7 @@ new Vue({
       switch (details.status)
       {
         case "OK":
-          window.location.assign("/#/home");
-          localStorage.setItem("user", JSON.stringify(details.data));
+          window.location.assign("login.html");
           break;
         case "KO":
           this.$els.signupform.setAttribute("data-state", "already-exists");
