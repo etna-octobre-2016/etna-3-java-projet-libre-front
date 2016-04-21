@@ -11,10 +11,10 @@ module.exports = {
         replacement: Date.now()
       }
     ],
-    "development": [      
+    "development": [
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",
@@ -24,7 +24,7 @@ module.exports = {
     "pre-production": [
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",
@@ -34,7 +34,7 @@ module.exports = {
     "production": [
       {
         match: "API_BASE_URL",
-        replacement: "http://localhost:3080"
+        replacement: "http://localhost:8080"
       },
       {
         match: "ENV",
