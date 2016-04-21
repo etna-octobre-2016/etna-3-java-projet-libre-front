@@ -22,6 +22,7 @@ export default {
 
       console.log("addTodoList");
       console.log(todo);
+      this.todos.push(todo);
     },
     onAddBtnClick: function() {
 
