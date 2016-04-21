@@ -1,6 +1,6 @@
 <section class="s-category">
-  <header class="s-category-header">
-    <input class="s-category-header-input" type="text" placeholder="Ajouter une liste de tâche à {{category.label}}" v-on:keyup.enter="onAddTaskList">
+  <header class="s-category-header" v-if="category">
+    <input class="s-category-header-input" type="text" placeholder="Ajouter une liste de tâche à {{category.name}}" v-on:keyup.enter="onAddTaskList">
   </header>
-  <component-todo-list :title="list.name" v-for="list in taskLists"></component-todo-list>
+  <component-todo-list :data="list" v-for="list in taskLists"></component-todo-list>
 </section>

@@ -60,7 +60,7 @@ export function init(route)
         if (response.count === 1)
         {
           this.category = response.data[0];
-          TaskLists.fetchByCategory({ idcategory: this.category.id }).then(
+          TaskLists.fetchByCategory(this.category).then(
             this.onTaskListsFetchSuccess.bind(this),
             this.onTaskListsFetchError.bind(this)
           );
