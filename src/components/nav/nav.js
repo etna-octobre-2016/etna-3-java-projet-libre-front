@@ -1,3 +1,4 @@
+import _reject from "lodash/reject.js";
 import Vue from "vue";
 import TaskCategories from "modules/api/task-categories.js";
 import template from "./nav.html";
@@ -29,7 +30,7 @@ export default {
     addCategory: function(category) {
 
       TaskCategories.create(category).then(
-        this.onTaskCategoriesCreateSuccess.bind(this, category),
+        this.onTaskCategoriesCreateSuccess.bind(this),
         this.onTaskCategoriesCreateError.bind(this)
       );
     },
@@ -54,14 +55,21 @@ export default {
       }
       this.isAddingCategory = false;
     },
+    onNavItemDelete: function(category) {
+
+      TaskCategories.remove(category).then(
+        this.onTaskCategoriesRemoveSuccess.bind(this, category),
+        this.onTaskCategoriesRemoveError.bind(this)
+      );
+    },
     onTaskCategoriesCreateError: function(e) {
 
       console.error("Une erreur a eu lieu lors de la création d'une catégorie de tâches. Voir exception ci-dessous :");
       console.log(e);
     },
-    onTaskCategoriesCreateSuccess: function(category) {
+    onTaskCategoriesCreateSuccess: function(response) {
 
-      this.categories.push(category);
+      this.categories.push(response.data[0]);
     },
     onTaskCategoriesFetchError: function(e) {
 
@@ -71,6 +79,15 @@ export default {
     onTaskCategoriesFetchSuccess: function(response) {
 
       this.categories = response.data;
+    },
+    onTaskCategoriesRemoveError: function(e) {
+
+      console.error("Une erreur a eu lieu lors de la suppression d'une catégorie de tâches. Voir exception ci-dessous :");
+      console.log(e);
+    },
+    onTaskCategoriesRemoveSuccess: function(category) {
+
+      this.categories = _reject(this.categories, category);
     }
   }
 };

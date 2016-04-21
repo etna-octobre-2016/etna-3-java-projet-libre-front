@@ -13,7 +13,7 @@ export default {
 
     onDelete: function() {
 
-      alert("delete" + this.label);
+      this.$dispatch("delete");
     }
   }
 };

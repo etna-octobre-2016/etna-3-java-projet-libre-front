@@ -39,4 +39,23 @@ export default class TaskCategories
       );
     });
   }
+  static remove(category)
+  {
+    return new Promise(function(resolve, reject){
+
+      var body,
+          headers,
+          req;
+
+      body = JSON.stringify(category);
+      headers = {
+        "Content-Type": "application/json"
+      };
+      req = new request("@@API_BASE_URL/category", "DELETE", body, headers);
+      req.send().then(
+        response.validate.bind(null, resolve, reject),
+        response.validate.bind(null, resolve, reject)
+      );
+    });
+  }
 }
