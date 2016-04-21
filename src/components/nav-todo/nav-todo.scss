@@ -1,0 +1,14 @@
+.navtodo
+{
+  appearance: none;
+  background: transparent;
+  border:     none;
+  display:    block;
+  padding:    20px;
+  width:      100%;
+
+  &:not(:last-child)
+  {
+    border-bottom: 1px solid rgba(#000, 0.2);
+  }
+}
