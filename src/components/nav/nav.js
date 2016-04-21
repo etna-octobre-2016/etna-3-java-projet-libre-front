@@ -12,21 +12,19 @@ export default {
 
     return {
 
-      isAddingTodo: false,
-      todos: []
+      isAddingCategory: false,
+      categories: []
     };
   },
   methods: {
 
-    addTodoList: function(todo) {
+    addCategory: function(todo) {
 
-      console.log("addTodoList");
-      console.log(todo);
-      this.todos.push(todo);
+      this.categories.push(todo);
     },
     onAddBtnClick: function() {
 
-      this.isAddingTodo = true;
+      this.isAddingCategory = true;
       Vue.nextTick(function() {
 
         this.$els.input.focus();
@@ -35,15 +33,15 @@ export default {
     },
     onAddComplete: function(e) {
 
-      var todoLabel;
+      var categoryLabel;
 
-      todoLabel = e.target.value;
-      if (todoLabel.length > 0)
+      categoryLabel = e.target.value;
+      if (categoryLabel.length > 0)
       {
-        this.addTodoList({ label: todoLabel });
+        this.addCategory({ label: categoryLabel });
         e.target.value = "";
       }
-      this.isAddingTodo = false;
+      this.isAddingCategory = false;
     }
   }
 };
