@@ -10,6 +10,7 @@ html.fullscreen
       title Titre de la page
     link(rel="stylesheet", href="css/main.css?bust=@@CACHE_BUST")
     script(src="js/vendors.js?bust=@@CACHE_BUST")
-    script(src="js/main.js?bust=@@CACHE_BUST")
   body
-    block content
+    main#main
+      block content
+    block scripts

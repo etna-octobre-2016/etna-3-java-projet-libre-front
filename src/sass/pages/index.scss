@@ -1,0 +1,64 @@
+///////////////////////////////////////////////////////////////////
+// Device: Mobile
+///////////////////////////////////////////////////////////////////
+
+@include mobile-portrait-and-up
+{
+  .app
+  {
+    display:          flex;
+      align-items:    stretch;
+      flex-direction: column;
+    height:           100%;
+  }
+  .app-header
+  {
+    box-shadow: 0 3px 5px rgba(#000000, 0.3);
+  }
+  .app-wrapper
+  {
+    display:      flex;
+      flex-basis: 0;
+      flex-grow:  1;
+    min-height:   0; // NOTE: fixes .app-wrapper-content scrollbar on Firefox (see: http://stackoverflow.com/questions/28636832/firefox-overflow-y-not-working-with-nested-flexbox)
+  }
+  .app-wrapper-nav
+  {
+    display:       flex;
+      align-items: stretch;
+    overflow-y:    auto;
+  }
+  .app-wrapper-content
+  {
+    flex-basis: 0;
+    flex-grow:  1;
+    padding:    120px 0;
+    overflow-y: auto;
+  }
+  .app-wrapper-content-main
+  {
+    margin: 20px;
+  }
+}
+@include mobile-landscape-and-up
+{
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Tablet
+///////////////////////////////////////////////////////////////////
+
+@include tablet-portrait-and-up
+{
+}
+@include tablet-landscape-and-up
+{
+}
+
+///////////////////////////////////////////////////////////////////
+// Device: Desktop
+///////////////////////////////////////////////////////////////////
+
+@include desktop
+{
+}
