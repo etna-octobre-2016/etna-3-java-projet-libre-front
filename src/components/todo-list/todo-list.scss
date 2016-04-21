@@ -19,6 +19,17 @@
   margin:        0;
   padding:       10px 20px;
 }
+.todolist-header
+{
+  margin: 20px;
+}
+.todolist-header-input
+{
+  @extend %textfield;
+
+  display: block;
+  width:   100%;
+}
 .todolist-content
 {
   max-height: 500px;

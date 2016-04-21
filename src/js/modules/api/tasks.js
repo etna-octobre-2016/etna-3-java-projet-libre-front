@@ -20,4 +20,23 @@ export default class Tasks
       );
     });
   }
+  static create(task)
+  {
+    return new Promise(function(resolve, reject){
+
+      var body,
+          headers,
+          req;
+
+      body = JSON.stringify(task);
+      headers = {
+        "Content-Type": "application/json"
+      };
+      req = new request("@@API_BASE_URL/tasks", "POST", body, headers);
+      req.send().then(
+        response.validate.bind(null, resolve, reject),
+        response.validate.bind(null, resolve, reject)
+      );
+    });
+  }
 }

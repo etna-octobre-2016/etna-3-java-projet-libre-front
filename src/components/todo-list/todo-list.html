@@ -1,11 +1,9 @@
 <section class="todolist" v-bind:class="{ 'is-collapsed': isCollapsed }">
   <h2 class="todolist-title" v-on:click="onTitleClick">{{data.name}}</h2>
   <div class="todolist-content">
-    <component-task :data="{name: 'task name'}"></component-task>
-    <component-task :data="{name: 'task name'}"></component-task>
-    <component-task :data="{name: 'task name'}"></component-task>
-    <component-task :data="{name: 'task name'}"></component-task>
-    <component-task :data="{name: 'task name'}"></component-task>
-    <component-task :data="{name: 'task name'}"></component-task>
+    <header class="todolist-header">
+      <input class="todolist-header-input" type="text" placeholder="Ajouter une tâche à {{data.name}}" v-on:keyup.enter="onAddTask">
+    </header>
+    <component-task :data="task" v-for="task in tasks | orderBy 'idtask' -1"></component-task>
   </div>
 </section>
