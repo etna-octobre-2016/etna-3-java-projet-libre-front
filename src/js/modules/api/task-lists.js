@@ -13,7 +13,7 @@ export default class TaskLists
       headers = {
         "Content-Type": "application/json"
       };
-      req = new request(`@@API_BASE_URL/category/${category.idcategory}/lists`, "GET", null, headers);
+      req = new request(`@@API_BASE_URL/categories/${category.idcategory}/lists`, "GET", null, headers);
       req.send().then(
         response.validate.bind(null, resolve, reject),
         response.validate.bind(null, resolve, reject)
@@ -32,7 +32,7 @@ export default class TaskLists
       headers = {
         "Content-Type": "application/json"
       };
-      req = new request("@@API_BASE_URL/list", "POST", body, headers);
+      req = new request("@@API_BASE_URL/lists", "POST", body, headers);
       req.send().then(
         response.validate.bind(null, resolve, reject),
         response.validate.bind(null, resolve, reject)

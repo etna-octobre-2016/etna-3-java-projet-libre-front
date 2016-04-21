@@ -49,7 +49,7 @@ export default class TaskCategories
       headers = {
         "Content-Type": "application/json"
       };
-      req = new request("@@API_BASE_URL/category", "POST", body, headers);
+      req = new request("@@API_BASE_URL/categories", "POST", body, headers);
       req.send().then(
         response.validate.bind(null, resolve, reject),
         response.validate.bind(null, resolve, reject)
@@ -68,7 +68,7 @@ export default class TaskCategories
       headers = {
         "Content-Type": "application/json"
       };
-      req = new request("@@API_BASE_URL/category", "DELETE", body, headers);
+      req = new request("@@API_BASE_URL/categories", "DELETE", body, headers);
       req.send().then(
         response.validate.bind(null, resolve, reject),
         response.validate.bind(null, resolve, reject)
