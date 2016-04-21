@@ -15,6 +15,14 @@ export default {
   },
   methods: {
 
+    save: function() {
+
+      window.localStorage.setItem("selectedCategory", JSON.stringify({ id: this.id, label: this.label }));
+    },
+    onClick: function() {
+
+      this.save();
+    },
     onDelete: function() {
 
       this.$dispatch("delete");
