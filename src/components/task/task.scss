@@ -1,0 +1,30 @@
+.task
+{
+  display:       flex;
+    align-items: center;
+  height:        50px;
+  padding:       0 20px;
+
+  &:nth-child(odd)
+  {
+    background: rgba(#000, 0.05);
+  }
+  &:not(:last-child)
+  {
+    border-bottom: 1px solid rgba(#000, 0.1);
+  }
+}
+.task.is-done
+{
+  opacity: 0.5;
+
+  .task-name
+  {
+    text-decoration: line-through;
+  }
+}
+.task-name
+{
+  font-size:   1.2rem;
+  margin-left: 10px;
+}

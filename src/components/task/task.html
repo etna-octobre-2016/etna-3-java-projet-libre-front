@@ -1,0 +1,4 @@
+<article class="task" v-bind:class="{ 'is-done': isDone }">
+  <input type="checkbox" v-model="isDone">
+  <span class="task-name">{{data.name}}</span>
+</article>

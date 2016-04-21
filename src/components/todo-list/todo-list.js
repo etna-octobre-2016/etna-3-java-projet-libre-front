@@ -1,5 +1,6 @@
 import Tasks from "modules/api/tasks.js";
 import template from "./todo-list.html";
+import task from "components/task/task.js";
 
 export default {
 
@@ -9,6 +10,9 @@ export default {
     data: {
       type: Object
     }
+  },
+  components: {
+    "component-task": task
   },
   data: function() {
 

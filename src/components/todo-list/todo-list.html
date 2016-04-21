@@ -1,6 +1,11 @@
 <section class="todolist" v-bind:class="{ 'is-collapsed': isCollapsed }">
   <h2 class="todolist-title" v-on:click="onTitleClick">{{data.name}}</h2>
   <div class="todolist-content">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos laudantium quaerat, tempore expedita cupiditate, doloremque vero saepe consequatur odio doloribus ipsam praesentium, adipisci animi voluptas repellat aut vel provident. Non?
+    <component-task :data="{name: 'task name'}"></component-task>
+    <component-task :data="{name: 'task name'}"></component-task>
+    <component-task :data="{name: 'task name'}"></component-task>
+    <component-task :data="{name: 'task name'}"></component-task>
+    <component-task :data="{name: 'task name'}"></component-task>
+    <component-task :data="{name: 'task name'}"></component-task>
   </div>
 </section>
