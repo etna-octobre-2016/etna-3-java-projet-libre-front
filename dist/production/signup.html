@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="fullscreen">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>[PRODUCTION] Signup</title>
+    <link rel="stylesheet" href="css/main.css?bust=1461274191139">
+    <script src="js/vendors.js?bust=1461274191139"></script>
+  </head>
+  <body>
+    <main id="main">
+      <section class="signup">
+        <div class="signup-container">
+          <form name="signupForm" v-on:submit="onFormSubmit" v-el:signupform="" class="signup-form">
+            <div class="signup-logo">Pimp My Tasks</div>
+            <p data-id="invalid" class="signup-form-error">Veuillez vérifier les champs en rouge.</p>
+            <p data-id="already-exists" class="signup-form-error">Un compte existe déjà pour cet email.</p>
+            <p data-id="unexpected-error" class="signup-form-error">Une erreur a eu lieu, veuillez réessayer ultérieurement.</p>
+            <div class="signup-form-content">
+              <input type="text" name="username" placeholder="Nom d'utilisateur" class="signup-form-field">
+              <input type="email" name="email" placeholder="Email" class="signup-form-field">
+              <input type="password" name="password" placeholder="Mot de passe" class="signup-form-field">
+              <input type="password" name="passwordConfirm" placeholder="Confirmez votre mot de passe" class="signup-form-field">
+              <button type="submit" class="signup-form-button signup-form-button--submit">S'inscrire</button><a href="login.html" class="signup-form-button signup-form-button--link">Aller à la page de connexion</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

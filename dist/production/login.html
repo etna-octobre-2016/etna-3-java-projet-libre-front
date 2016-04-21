@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="fullscreen">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>[PRODUCTION] Connexion</title>
+    <link rel="stylesheet" href="css/main.css?bust=1461274191139">
+    <script src="js/vendors.js?bust=1461274191139"></script>
+  </head>
+  <body>
+    <main id="main">
+      <section class="login">
+        <div class="login-container">
+          <form name="loginForm" v-on:submit="onFormSubmit" v-el:loginform="" class="login-form">
+            <div class="login-logo">Pimp My Tasks</div>
+            <p data-id="invalid" class="login-form-error">Veuillez vérifier les champs en rouge.</p>
+            <p data-id="bad-credentials" class="login-form-error">Vos identifiants sont incorrects.</p>
+            <p data-id="unexpected-error" class="login-form-error">Une erreur a eu lieu, veuillez réessayer ultérieurement.</p>
+            <div class="login-form-content">
+              <input type="email" name="email" placeholder="Email" class="login-form-field">
+              <input type="password" name="password" placeholder="Mot de passe" class="login-form-field">
+              <button type="submit" class="login-form-button login-form-button--submit">Se connecter</button><a href="signup.html" class="login-form-button login-form-button--link">Aller à la page d'inscription</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="js/login.js"></script>
+  </body>
+</html>
