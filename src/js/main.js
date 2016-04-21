@@ -7,6 +7,7 @@ import SVG4Everybody from "svg4everybody";
 import Vue from "vue";
 import * as router from "core/router.js";
 import * as sections from "core/sections.js";
+import nav from "components/nav/nav.js";
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -19,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     data: {
       currentSection: null,
       isLoading: true
+    },
+    components: {
+      "component-nav": nav
     },
     ready: function() {
 

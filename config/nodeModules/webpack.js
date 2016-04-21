@@ -88,9 +88,10 @@ module.exports = function() {
         /*
          * Directories
          */
-        core:     PROJECT_DIR + "/src/js/core",
-        modules:  PROJECT_DIR + "/src/js/modules",
-        sections: PROJECT_DIR + "/src/sections"
+        components: PROJECT_DIR + "/src/components",
+        core:       PROJECT_DIR + "/src/js/core",
+        modules:    PROJECT_DIR + "/src/js/modules",
+        sections:   PROJECT_DIR + "/src/sections"
       }
     },
     plugins: PLUGINS[argv.env]

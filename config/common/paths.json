@@ -12,8 +12,10 @@
     "js": {
       "default": "src/js/*.js",
       "watch": [
+        "!src/components/**/*.scss",
         "!src/sections/**/*.scss",
         "src/js/**/*.js",
+        "src/components/**",
         "src/sections/**"
       ]
     },
