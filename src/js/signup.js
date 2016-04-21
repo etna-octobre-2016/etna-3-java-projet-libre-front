@@ -71,7 +71,7 @@ new Vue({
       switch (details.status)
       {
         case "OK":
-          window.location.hash = "/#/home";
+          window.location.assign("/#/home");
           localStorage.setItem("user", JSON.stringify(details.data));
           break;
         case "KO":
